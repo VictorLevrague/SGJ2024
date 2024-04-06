@@ -53,18 +53,34 @@ func get_score() -> float:
 
 
 # Update state function
+#func update_state(t: float, state_dict: Dictionary, input_dict: Dictionary):
+	#var phi_s_e = phi(state_dict['s']) * state_dict['e']
+	#var rho_v = rho(state_dict['v'])
+	#var mu_q = mu(state_dict['q'])
+	#var dt = (t - state_dict['t'])/24
+	#var d = input_dict['d']
+#
+	#state_dict['t'] = t
+	#state_dict['s'] += dt * (-phi_s_e / gamma + d * (input_dict['s_in'] - state_dict['s']))
+	#state_dict['e'] += dt * ((1 - input_dict['alpha']) * (phi_s_e - m_e * state_dict['e']) - d * state_dict['e'])
+	#state_dict['v'] += dt * (input_dict['alpha'] * beta * phi_s_e - rho_v * state_dict['c'] - d * state_dict['v'])
+	#state_dict['c'] += dt * (mu_q - m_c - d) * state_dict['c']
+	#state_dict['q'] += dt * (rho_v - mu_q * state_dict['q'])
+	#state = state_dict
+
+# Update state function
 func update_state(t: float, state_dict: Dictionary, input_dict: Dictionary):
-	var phi_s_e = phi(state_dict['s']) * state_dict['e']
-	var rho_v = rho(state_dict['v'])
-	var mu_q = mu(state_dict['q'])
-	var dt = (t - state_dict['t'])/24
-	var d = input_dict['d']
-
-	state_dict['t'] = t
-	state_dict['s'] += dt * (-phi_s_e / gamma + d * (input_dict['s_in'] - state_dict['s']))
-	state_dict['e'] += dt * ((1 - input_dict['alpha']) * (phi_s_e - m_e * state_dict['e']) - d * state_dict['e'])
-	state_dict['v'] += dt * (input_dict['alpha'] * beta * phi_s_e - rho_v * state_dict['c'] - d * state_dict['v'])
-	state_dict['c'] += dt * (mu_q - m_c - d) * state_dict['c']
-	state_dict['q'] += dt * (rho_v - mu_q * state_dict['q'])
-	state = state_dict
-
+	var d = input_dict["d"]
+	var hours = t - state_dict["t"]
+	state_dict["t"] = t
+	var dt = 1 / 24;
+	for hr in hours:
+		var phi_s_e = phi(state_dict["s"]) * state_dict["e"]
+		var rho_v = rho(state_dict["v"])
+		var mu_q = mu(state_dict["q"])
+		state_dict["s"] += dt * (-phi_s_e / gamma + d * (input_dict["s_in"] - state_dict["s"]))
+		state_dict["e"] += dt * ((1 - input_dict["alpha"]) * (phi_s_e - m_e * state_dict["e"]) - d * state_dict["e"])
+		state_dict["v"] += dt * (input_dict["alpha"] * beta * phi_s_e - rho_v * state_dict["c"] - d * state_dict["v"])
+		state_dict["c"] += dt * (mu_q - m_c - d) * state_dict["c"]
+		state_dict["q"] += dt * (rho_v - mu_q * state_dict["q"])
+		state = state_dict

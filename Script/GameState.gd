@@ -77,13 +77,12 @@ Return 1 if player death else 0
 func check_death() -> int:
 	#TODO: add verification to minamal produc
 	#Playe wasn't immunity
-	var epsilon = 0.0001
-	if GameVar.action_player["nb_action"] >= GameVar.immunity_action:
-		var c = Calcule.state["c"]
-		if c <= (0.0 + epsilon):
-			return 1
-		else:
-			return 0
+	var epsilon = 0.001
+	var c = Calcule.state["c"]
+	if c <= (0.0 + epsilon):
+		return 1
+	else:
+		return 0
 	return 0
 
 func check_production():
@@ -143,14 +142,6 @@ func _private_minimal_produce_update():
 Calcul the new value of output for new day
 """
 func _private_update_output():
-	#TODO: Place reel equation
-	"""
-	Algo:
-		Calcule yield_reactor
-		Actualiser la valeur de yield_reactor (f1)
-		Calculer algae
-		Actualiser la valeur de algae (f2)
-	"""
 	Calcule.update_state(GameVar.time_in_game, Calcule.state, Calcule.input)
 	#GameVar.game_output["algae"] += 0.1
 	#GameVar.game_output["yield_reactor"] += 0.1
@@ -160,8 +151,8 @@ func _private_update_output():
 Update time game (add 1 to day)
 """
 func _private_update_day():
-	#GameVar.time_in_game = GameVar.time_in_game + 24
-	GameVar.time_in_game = GameVar.time_in_game + GameVar.slider_time_value
+	GameVar.time_in_game = GameVar.time_in_game + 24
+	#GameVar.time_in_game = GameVar.time_in_game + GameVar.slider_time_value
 	GameVar.action_player["nb_action"] += 1
 
 """
@@ -306,6 +297,9 @@ func _on_sliderglucose_value_changed(value):
 
 func _on_slidertime_value_changed(value):
 	value = _private_conv_time(value)
+	#Pansement
+	if value == 0:
+		value = 1
 	print("Slider timer: " + str(value))
 	slider_timer(value)
 
