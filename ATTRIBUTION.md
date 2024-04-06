@@ -9,10 +9,6 @@ Game Artist : []()
 Game Artist : []()
 Sound Design : []()
 
-### Godot Game Template
-Author: [Marek Belski and contributors](https://github.com/Maaack/Godot-Game-Template/graphs/contributors)  
-Source: [github: Godot-Game-Template](https://github.com/Maaack/Godot-Game-Template)  
-License: [MIT License](LICENSE.txt)  
 
 ## Tools
 
