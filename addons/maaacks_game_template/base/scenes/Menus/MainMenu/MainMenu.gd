@@ -5,7 +5,7 @@ extends Control
 @export_file("*.tscn") var game_scene_path : String
 @export var options_packed_scene : PackedScene
 @export var credits_packed_scene : PackedScene
-@export var version_name : String = '0.0.0'
+@export var version_name : String = '1.0.1'
 
 var options_scene
 var credits_scene
