@@ -15,7 +15,7 @@ func load_scene(scene_path : String):
 	SceneLoader.load_scene(scene_path)
 
 func play_game():
-	SceneLoader.load_scene(game_scene_path)
+	SceneLoader.load_scene("res://Script/game_state.tscn")
 
 func _open_sub_menu(menu : Control):
 	sub_menu = menu
@@ -83,6 +83,7 @@ func _ready():
 
 func _on_play_button_pressed():
 	play_game()
+	#get.tree().change_scene_to_packed("res://Script/game_state.tscn")
 
 func _on_options_button_pressed():
 	_open_sub_menu(options_scene)

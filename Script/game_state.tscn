@@ -90,7 +90,7 @@ offset_bottom = 576.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="TextureRect" parent="Control/MarginContainer"]
+[node name="bg" type="TextureRect" parent="Control/MarginContainer"]
 layout_mode = 2
 texture = ExtResource("2_qo647")
 
@@ -285,6 +285,7 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="day_count" type="HBoxContainer" parent="Control"]
+layout_mode = 0
 offset_left = 1330.0
 offset_top = 60.0
 offset_right = 1560.0
@@ -319,6 +320,7 @@ texture = ExtResource("18_4qm36")
 expand_mode = 1
 
 [node name="score_count" type="HBoxContainer" parent="Control/topnotchleft/TextureRect"]
+layout_mode = 0
 offset_left = 630.0
 offset_top = 60.0
 offset_right = 860.0
@@ -337,6 +339,7 @@ theme_override_font_sizes/font_size = 32
 text = "Score : %d"
 
 [node name="bacteria_count" type="HBoxContainer" parent="Control/topnotchleft/TextureRect"]
+layout_mode = 0
 offset_left = 380.0
 offset_top = 60.0
 offset_right = 630.0
@@ -355,6 +358,7 @@ theme_override_font_sizes/font_size = 32
 text = "%d Bacteries"
 
 [node name="algues_count" type="HBoxContainer" parent="Control/topnotchleft/TextureRect"]
+layout_mode = 0
 offset_left = 60.0
 offset_top = 60.0
 offset_right = 374.0

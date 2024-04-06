@@ -344,9 +344,27 @@ modulate = Color(1, 1, 1, 0)
 
 [node name="Title" parent="MenuContainer/VBoxContainer/TitlesMargin/TitlesContainer" index="0"]
 modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 0)
+size_flags_horizontal = 1
+theme_override_font_sizes/font_size = 48
+text = "Bacterieeeeeee"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="SubTitle" parent="MenuContainer/VBoxContainer/TitlesMargin/TitlesContainer" index="1"]
+[node name="SubTitle" type="Label" parent="MenuContainer/VBoxContainer/TitlesMargin/TitlesContainer" index="1"]
+visible = false
 modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Attrape-les "
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MenuButtons" parent="MenuContainer/VBoxContainer/MenuMargin" index="0"]
 modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 0)
+size_flags_vertical = 1
+
+[node name="PlayButton" parent="MenuContainer/VBoxContainer/MenuMargin/MenuButtons" index="0"]
+custom_minimum_size = Vector2(128, 40)
+text = "Play"
