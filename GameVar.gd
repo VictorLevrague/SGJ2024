@@ -1,22 +1,19 @@
 extends Node
 
-### Input ###
+### Matières premières ###
 
 @export var light: float
 @export var dilution: float
 @export var glucose: float
 
-### Output ###
+### Produits ###
 
 @export var algae: float
-@export var yield_reactor: float
-@export var production_need: float
+@export var bacteria: float
 
 func init():
     light = 0
     dilution = 0
     glucose = 0
     algae = 0
-    yield_reactor = 0
-    production_need = 0
-
+    bacteria = 0
