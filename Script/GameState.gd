@@ -1,19 +1,19 @@
 extends Node
 
 func _process(float):
-    update_gui()
-    
+	update_gui()
+	
 func update_gui():
-    pass
+	pass
 
 func check_death():
-    pass
+	pass
 
 func check_production():
-    pass
+	pass
 
 func progress_day():
-    update_output()
+	update_output()
 
 func update_output():
-    pass
+	pass
