@@ -15,6 +15,12 @@ Source: [github: Godot-Game-Template](https://github.com/Maaack/Godot-Game-Templ
 License: [MIT License](LICENSE.txt)  
 
 ## Tools
+
+#### Godot Game Template
+Author: [Marek Belski and contributors](https://github.com/Maaack/Godot-Game-Template/graphs/contributors)  
+Source: [github: Godot-Game-Template](https://github.com/Maaack/Godot-Game-Template)  
+License: [MIT License](LICENSE.txt)  
+
 #### Godot
 Author: [Juan Linietsky, Ariel Manzur, and contributors](https://godotengine.org/contact)  
 Source: [godotengine.org](https://godotengine.org/)  
