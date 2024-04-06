@@ -117,6 +117,7 @@ func _private_progress_day():
 
 """
 Function for calcul output: yield_reactor
+DEVALUATE
 """
 func _private_f1() -> float:
 	var m_light = GameVar.game_input["light"]
@@ -128,6 +129,7 @@ func _private_f1() -> float:
 
 """
 Function for calcul output: algae
+DEVALUATE
 """
 func _private_f2() -> float:
 	var m_light = GameVar.game_input["light"]
@@ -146,12 +148,6 @@ func _private_minimal_produce_update():
 	pass
 
 """
-Update minial ressource need 
-"""
-func _private_update_minimal_ressource_needed():
-	pass
-
-"""
 Calcul the new value of output for new day
 """
 func _private_update_output():
@@ -163,8 +159,9 @@ func _private_update_output():
 		Calculer algae
 		Actualiser la valeur de algae (f2)
 	"""
-	GameVar.game_output["algae"] += 0.1
-	GameVar.game_output["yield_reactor"] += 0.1
+	Calcule.update_state(GameVar.time_in_game, Calcule.state)
+	#GameVar.game_output["algae"] += 0.1
+	#GameVar.game_output["yield_reactor"] += 0.1
 	
 
 """
