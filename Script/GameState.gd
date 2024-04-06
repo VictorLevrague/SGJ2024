@@ -161,3 +161,20 @@ Function link buttom to next day
 func next_day():
 	print("[*] Next day pressed")
 	_private_progress_day()
+
+
+func _on_button_pressed():
+	slider_light()
+
+
+func _on_sliderdilution_pressed():
+	slider_dilution()
+
+
+
+func _on_sliderglucose_pressed():
+	slider_glucose()
+
+
+func _on_nextdaybutton_pressed():
+	next_day()
