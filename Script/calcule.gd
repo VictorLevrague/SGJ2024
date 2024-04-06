@@ -17,6 +17,8 @@ func phi(s: float) -> float: return phi_max * s / (ks + s)
 func rho(v: float) -> float: return rho_max * v / (kv + v)
 func mu(q: float) -> float: return mu_max * (1 - qmin / q)
 
+signal new_day()
+
 # Define state dictionary
 @export var state = {
     "t"= 0.0,# hours
@@ -70,6 +72,7 @@ func get_score() -> float:
 
 # Update state function
 func update_state(t: float, state_dict: Dictionary, input_dict: Dictionary):
+    emit_signal("new_day")
     var d = input_dict["d"]
     var hours = t - state_dict["t"]
     state_dict["t"] = t

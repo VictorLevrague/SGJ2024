@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlak4evstw3o"
-path="res://.godot/imported/ICON_Bacterie.svg-65a1dad50cb7cacd3e7805c6ff34143c.ctex"
+uid="uid://dc6tgb75itky"
+path="res://.godot/imported/ICON_Bacterie_save.svg-0c61ba31d0358ebf9500ee28f35d516c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://A7/ICON_Bacterie.svg"
-dest_files=["res://.godot/imported/ICON_Bacterie.svg-65a1dad50cb7cacd3e7805c6ff34143c.ctex"]
+source_file="res://A7/ICON_Bacterie_save.svg"
+dest_files=["res://.godot/imported/ICON_Bacterie_save.svg-0c61ba31d0358ebf9500ee28f35d516c.ctex"]
 
 [params]
 
