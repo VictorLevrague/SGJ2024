@@ -25,6 +25,7 @@ RuntimeLogger="*res://addons/maaacks_game_template/extras/scripts/RuntimeLogger.
 ProjectLevelLoader="*res://addons/maaacks_game_template/extras/scenes/Autoloads/ProjectLevelLoader.tscn"
 ProjectMusicController="*res://addons/maaacks_game_template/extras/scenes/Autoloads/ProjectMusicController.tscn"
 ProjectUISoundController="*res://addons/maaacks_game_template/extras/scenes/Autoloads/ProjectUISoundController.tscn"
+GameVar="*res://Script/GameVar.gd"
 
 [display]
 
