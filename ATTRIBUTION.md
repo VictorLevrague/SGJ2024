@@ -1,12 +1,22 @@
 # Attribution
 ## Collaborators
 
-### Godot Game Template
+### L'Arche
+Dév : []()
+Dév : []()
+Dév, Game Design : []()
+Game Artist : []()
+Game Artist : []()
+Sound Design : []()
+
+
+## Tools
+
+#### Godot Game Template
 Author: [Marek Belski and contributors](https://github.com/Maaack/Godot-Game-Template/graphs/contributors)  
 Source: [github: Godot-Game-Template](https://github.com/Maaack/Godot-Game-Template)  
 License: [MIT License](LICENSE.txt)  
 
-## Tools
 #### Godot
 Author: [Juan Linietsky, Ariel Manzur, and contributors](https://godotengine.org/contact)  
 Source: [godotengine.org](https://godotengine.org/)  
