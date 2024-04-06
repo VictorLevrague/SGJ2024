@@ -1,6 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5la6rts4vbws"]
+[gd_scene load_steps=13 format=3 uid="uid://bmpk5gqctgbrx"]
 
 [ext_resource type="Script" path="res://Script/GameState.gd" id="1_2k4vx"]
+[ext_resource type="Texture2D" uid="uid://btsfehiev8plu" path="res://A7/light.png" id="2_3hdml"]
+[ext_resource type="FontFile" uid="uid://ckm3povkpu5p2" path="res://A7/font/MOBY-REG.TTF" id="2_lldfd"]
+[ext_resource type="Texture2D" uid="uid://cigp7o6vojrwd" path="res://A7/icon-panel.svg" id="3_4xj1s"]
+[ext_resource type="Texture2D" uid="uid://cw2ky21shsr0n" path="res://A7/dilution.png" id="3_8rbrq"]
+[ext_resource type="Texture2D" uid="uid://b8jo2biut3fx2" path="res://A7/dot-slider.svg" id="4_0kpnb"]
+[ext_resource type="Texture2D" uid="uid://cmr5dv84nidp4" path="res://A7/glucose.png" id="5_3rprc"]
+[ext_resource type="Texture2D" uid="uid://2rxfv42n30cl" path="res://A7/style-slider.svg" id="5_o0fnr"]
+[ext_resource type="Texture2D" uid="uid://diu85nfspqov4" path="res://A7/dot-slider-hold.svg" id="5_oqppq"]
+[ext_resource type="Texture2D" uid="uid://3w3gpgdwl1nd" path="res://A7/Cadre_Controle.svg" id="6_d5h74"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_us1ng"]
+texture = ExtResource("5_o0fnr")
+expand_margin_left = 9.0
+expand_margin_top = 14.0
+expand_margin_right = 14.0
+expand_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g71sl"]
+texture = ExtResource("5_o0fnr")
+expand_margin_left = 9.0
+expand_margin_top = 14.0
+expand_margin_right = 14.0
+expand_margin_bottom = 19.0
 
 [node name="GameState" type="Node"]
 script = ExtResource("1_2k4vx")
@@ -26,41 +49,130 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="Control/MarginContainer"]
+visible = false
 layout_mode = 2
-color = Color(0.160784, 0.160784, 0.160784, 1)
+color = Color(0.745098, 0.976471, 1, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 2
+offset_left = 30.0
+offset_top = 360.0
+offset_right = 498.0
+offset_bottom = 988.0
+
+[node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("6_d5h74")
+
+[node name="TextureButton" type="TextureButton" parent="Control/VBoxContainer/TextureRect"]
+layout_mode = 2
+offset_left = 384.0
+offset_top = 10.0
+offset_right = 852.0
+offset_bottom = 74.0
+texture_normal = ExtResource("3_4xj1s")
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/TextureRect"]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 20.0
+offset_right = 270.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 31
+text = "Contrôle"
 
 [node name="buttons" type="VBoxContainer" parent="Control"]
-layout_mode = 0
-offset_right = 726.0
-offset_bottom = 1031.0
+layout_mode = 2
+offset_left = 50.0
+offset_top = 520.0
+offset_right = 470.0
+offset_bottom = 940.0
 alignment = 1
 
-[node name="Light" type="TextEdit" parent="Control/buttons"]
+[node name="VBoxContainer" type="HBoxContainer" parent="Control/buttons"]
 layout_mode = 2
+
+[node name="Light" type="Label" parent="Control/buttons/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 5
 size_flags_vertical = 3
-text = "Light"
+size_flags_stretch_ratio = 0.35
+theme_override_fonts/font = ExtResource("2_lldfd")
+theme_override_font_sizes/font_size = 18
+text = "               Lumière"
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control/buttons/VBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_3hdml")
+expand_mode = 1
 
 [node name="sliderlightbutton" type="HSlider" parent="Control/buttons"]
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 1.43
+theme_override_icons/grabber = ExtResource("4_0kpnb")
+theme_override_icons/grabber_highlight = ExtResource("5_oqppq")
+theme_override_styles/slider = SubResource("StyleBoxTexture_us1ng")
 
-[node name="Dilution" type="TextEdit" parent="Control/buttons"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/buttons"]
+custom_minimum_size = Vector2(40, 20)
+layout_mode = 2
+
+[node name="Dilution" type="Label" parent="Control/buttons/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Dilution"
+theme_override_fonts/font = ExtResource("2_lldfd")
+theme_override_font_sizes/font_size = 18
+text = "                Dilution"
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control/buttons/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("3_8rbrq")
+expand_mode = 1
 
 [node name="sliderdilution" type="HSlider" parent="Control/buttons"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_icons/grabber = ExtResource("4_0kpnb")
+theme_override_icons/grabber_highlight = ExtResource("5_oqppq")
+theme_override_styles/slider = SubResource("StyleBoxTexture_g71sl")
 
-[node name="Glucose" type="TextEdit" parent="Control/buttons"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/buttons"]
+layout_mode = 2
+
+[node name="Glucose" type="Label" parent="Control/buttons/HBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Glucose"
+theme_override_fonts/font = ExtResource("2_lldfd")
+text = "                Glucose"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control/buttons/HBoxContainer2"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_3rprc")
+expand_mode = 1
 
 [node name="sliderglucose" type="HSlider" parent="Control/buttons"]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/buttons"]
+layout_mode = 2
+
+[node name="time" type="Label" parent="Control/buttons/HBoxContainer3"]
+layout_mode = 2
+text = "Temps"
+
+[node name="TextureRect" type="TextureRect" parent="Control/buttons/HBoxContainer3"]
+layout_mode = 2
+
+[node name="slidertime" type="HSlider" parent="Control/buttons"]
+layout_mode = 2
 
 [node name="troll" type="TextureRect" parent="Control/buttons"]
 unique_name_in_owner = true
@@ -71,10 +183,10 @@ size_flags_vertical = 3
 layout_mode = 1
 anchors_preset = -1
 anchor_bottom = 0.037
-offset_left = 767.0
+offset_left = 1297.0
 offset_top = 42.0
 offset_right = 1853.0
-offset_bottom = 855.966
+offset_bottom = 275.966
 
 [node name="nextdaybutton" type="Button" parent="Control/buttonright"]
 layout_mode = 2

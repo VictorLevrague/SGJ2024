@@ -45,27 +45,27 @@ func modify_input(v: String, value) -> int:
 		match v:
 			"light":
 				print("[*] modify ligh")
-				GameVar.game_intput["light"] = value
+				GameVar.game_input["light"] = value
 				return 1
 			"dilution":
 				print("[*] modify dilution")
-				GameVar.game_intput["dilution"] = value
+				GameVar.game_input["dilution"] = value
 				return 1
 			"glucose":
 				print("[*] modify glucose")
-				GameVar.game_intput["glucose"] = value
+				GameVar.game_input["glucose"] = value
 				return 1
 			"algae":
 				print("[*] modify algae")
-				GameVar.game_intput["algae"] = value
+				GameVar.game_input["algae"] = value
 				return 1
 			"yield_reactor":
 				print("[*] modify yield_reactor")
-				GameVar.game_intput["yield_reactor"] = value
+				GameVar.game_input["yield_reactor"] = value
 				return 1
 			"glucose":
 				print("[*] modify glucose")
-				GameVar.game_intput["glucose"] = value
+				GameVar.game_input["glucose"] = value
 				return 1
 			_:
 				printerr("[-] Error name var input in modify_input")
@@ -74,7 +74,7 @@ func modify_input(v: String, value) -> int:
 		match v:
 			"day":
 				print("[*] modify day")
-				GameVar.game_intput["day"] = value
+				GameVar.game_input["day"] = value
 				return 1
 			_:
 				printerr("[-] Error name var input input in modify_input")
@@ -91,6 +91,7 @@ Check if the playe is death
 Return 1 if player death else 0
 """
 func check_death() -> int:
+	#TODO: add verification to minamal produc
 	#Playe wasn't immunity
 	if GameVar.time["day"] >= GameVar.immunity_day:
 		if GameVar.game_output["algae"] <= 0.0:
@@ -109,17 +110,58 @@ func _private_progress_day():
 	if check_death():
 		#TODO: Action when player loose
 		print("Perdu")
+	#TODO: add update mimale produce
 	_private_update_output()
 	_private_update_day()
 	print_all_vars()
+
+"""
+Function for calcul output: yield_reactor
+DEVALUATE
+"""
+func _private_f1() -> float:
+	var m_light = GameVar.game_input["light"]
+	var m_dilution = GameVar.game_input["dilution"]
+	var m_glucose = GameVar.game_input["glucose"]
+	#TODO: Complete the calcule
+	var r = 0
+	return 0.0
+
+"""
+Function for calcul output: algae
+DEVALUATE
+"""
+func _private_f2() -> float:
+	var m_light = GameVar.game_input["light"]
+	var m_dilution = GameVar.game_input["dilution"]
+	var m_glucose = GameVar.game_input["glucose"]
+	##var m_yield_reactor = GameVar.game_output["yield_reactor"]
+	#TODO: complete the calcule 
+	var r = 0
+	return 0.0
+
+"""
+Update minimale produce 
+"""
+func _private_minimal_produce_update():
+	#TODO: A faire
+	pass
 
 """
 Calcul the new value of output for new day
 """
 func _private_update_output():
 	#TODO: Place reel equation
-	GameVar.game_output["algae"] += 0.1
-	GameVar.game_output["yield_reactor"] += 0.1
+	"""
+	Algo:
+		Calcule yield_reactor
+		Actualiser la valeur de yield_reactor (f1)
+		Calculer algae
+		Actualiser la valeur de algae (f2)
+	"""
+	
+	#GameVar.game_output["algae"] += 0.1
+	#GameVar.game_output["yield_reactor"] += 0.1
 	
 
 """
@@ -133,7 +175,9 @@ Print all var in terminal
 """
 func print_all_vars():
 	print("immunity_day: ", GameVar.immunity_day)
-	print("game_intput: ", GameVar.game_intput)
+	print("game_input: ", GameVar.game_input)
+	print("game_intput: ", GameVar.game_input)
+
 	print("game_output: ", GameVar.game_output)
 	
 
@@ -142,7 +186,9 @@ Return all game variable (use for label print)
 """
 func _private_dump_all_value_string() -> String:
 	var s = "immunity_day: " + str(GameVar.immunity_day) + "\n"
-	s += "game_intput: " + str(GameVar.game_intput) + "\n"
+
+	s += "game_input: " + str(GameVar.game_input) + "\n"
+	s += "game_intput: " + str(GameVar.game_input) + "\n"
 	s += "game_output: " +  str(GameVar.game_output) + "\n"
 	s += "day: " + str(GameVar.time) + "\n"
 	return str(s)
@@ -223,5 +269,7 @@ func _on_sliderdilution_value_changed(value):
 
 func _on_sliderglucose_value_changed(value):
 	slider_glucose(value)
+
+
 
 
