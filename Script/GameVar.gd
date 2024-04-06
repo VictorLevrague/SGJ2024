@@ -4,8 +4,9 @@ extends Node
 """
 All global var
 """
-#It's day when the player can lose
-@export var immunity_day = 20
+#It's number action when the player can lose
+#Action is when player click on next 
+@export var immunity_action = 20
 
 
 #Minimal value needed 
@@ -13,7 +14,8 @@ All global var
 @export var startminimal_yield_reactor = 100
 
 #Time value
-@export var time_in_game = 1
+@export var slider_time_value = 1
+@export var time_in_game = 0
 
 
 ### Input ###
@@ -32,8 +34,8 @@ All global var
 }
 
 ### Time ###
-@export var time = {
-	"day": 0
+@export var action_player = {
+	"nb_action": 0
 }
 
 ### Objectif minimal output ###
