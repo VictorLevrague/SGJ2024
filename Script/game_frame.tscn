@@ -1,0 +1,147 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwxa38si4fdfq"]
+
+[ext_resource type="Texture2D" uid="uid://b4xpcuksnx4y0" path="res://icon.svg" id="2_e4266"]
+
+[sub_resource type="GDScript" id="GDScript_m2ijm"]
+script/source = "xtends Control
+
+#init game_var
+"
+
+[sub_resource type="GDScript" id="GDScript_ur13n"]
+script/source = "extends Panel
+
+"
+
+[node name="GameFrame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_m2ijm")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.207843, 0.227451, 0.427451, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -209.0
+offset_top = -186.0
+offset_right = 190.0
+offset_bottom = 152.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="PanelCurrency" type="Panel" parent="."]
+layout_mode = 2
+offset_right = 608.0
+offset_bottom = 137.0
+script = SubResource("GDScript_ur13n")
+
+[node name="Input" type="HBoxContainer" parent="PanelCurrency"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Glucose" type="HBoxContainer" parent="PanelCurrency/Input"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Icon" type="TextureRect" parent="PanelCurrency/Input/Glucose"]
+layout_mode = 2
+texture = ExtResource("2_e4266")
+
+[node name="Nb" type="Label" parent="PanelCurrency/Input/Glucose"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "0"
+
+[node name="Dilution" type="HBoxContainer" parent="PanelCurrency/Input"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Icon" type="TextureRect" parent="PanelCurrency/Input/Dilution"]
+layout_mode = 2
+texture = ExtResource("2_e4266")
+
+[node name="Nb" type="Label" parent="PanelCurrency/Input/Dilution"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "0"
+
+[node name="Light" type="HBoxContainer" parent="PanelCurrency/Input"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Icon" type="TextureRect" parent="PanelCurrency/Input/Light"]
+layout_mode = 2
+texture = ExtResource("2_e4266")
+
+[node name="Nb" type="Label" parent="PanelCurrency/Input/Light"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "0"
+
+[node name="OutputCurrency" type="Panel" parent="."]
+layout_mode = 2
+offset_left = 5.0
+offset_top = 692.0
+offset_right = 406.0
+offset_bottom = 829.0
+script = SubResource("GDScript_ur13n")
+
+[node name="Output" type="HBoxContainer" parent="OutputCurrency"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Algae" type="HBoxContainer" parent="OutputCurrency/Output"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Icon" type="TextureRect" parent="OutputCurrency/Output/Algae"]
+layout_mode = 2
+texture = ExtResource("2_e4266")
+
+[node name="Nb" type="Label" parent="OutputCurrency/Output/Algae"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "0"
+
+[node name="Yield" type="HBoxContainer" parent="OutputCurrency/Output"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Icon" type="TextureRect" parent="OutputCurrency/Output/Yield"]
+layout_mode = 2
+texture = ExtResource("2_e4266")
+
+[node name="Nb" type="Label" parent="OutputCurrency/Output/Yield"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "0"
