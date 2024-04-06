@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyil68pm1sovi"]
+
+[ext_resource type="Script" path="res://core/gameplay/buttons/productsPanel.gd" id="1_10a68"]
+
+[node name="Products" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 73.0
+offset_right = 172.0
+offset_bottom = 113.0
+script = ExtResource("1_10a68")
+
+[node name="algueslabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 405.0
+offset_top = 146.0
+offset_right = 445.0
+offset_bottom = 169.0
+text = "A"
+
+[node name="alguesbouton" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 378.0
+offset_top = 136.0
+offset_right = 464.0
+offset_bottom = 180.0
+
+[connection signal="pressed" from="Panel/alguesbouton" to="Panel" method="_on_alguesbouton_pressed"]
