@@ -31,6 +31,8 @@ Return 1 if sucess else -1
 """
 func modify_input(v: String, value) -> int:
 	if _private_is_float(value):
+		#TODO: pensez a modifier ici
+		value = value + 0.2
 		match v:
 			"light":
 				print("[*] modify ligh")
@@ -94,14 +96,14 @@ func check_production():
 """
 Update gamestate for new day
 """
-func progress_day():
-	update_output()
+func _private_progress_day():
+	_private_update_output()
 	_private_update_day()
 
 """
 Calcul the new value of output for new day
 """
-func update_output():
+func _private_update_output():
 	#TODO: Place reel equation
 	GameVar.game_output["algae"] += 0.1
 	GameVar.game_output["yield_reactor"] += 0.1
@@ -123,3 +125,36 @@ func print_all_vars():
 	print("game_output: ", GameVar.game_output)
 	print("time: ", GameVar.time)
 
+
+"""
+Function link to light slider
+"""
+func slider_light():
+	print("[*] slider light used")
+	if not modify_input("light", GameVar.game_intput["light"]):
+		printerr("[-] Error click button, value modify_input slider_light")
+
+"""
+Function link to dilution slider
+"""
+func slider_dilution():
+	print("[*] slider dilution used")
+	if not modify_input("dilution", GameVar.game_intput["dilution"]):
+		printerr("[-] Error click button, value modify_input slider_dilution")
+	
+
+"""
+Function link to glucose slider
+"""
+func slider_glucose():
+	print("[*] slider glucose used")
+	if not modify_input("glucose", GameVar.game_intput["glucose"]):
+		printerr("[-] Error click button, value modify_input slider_dilution")
+
+
+"""
+Function link buttom to next day
+"""
+func next_day():
+	print("[*] Next day pressed")
+	_private_progress_day()
