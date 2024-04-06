@@ -16,10 +16,10 @@ All global var
 
 
 ### Output ###
+##Yeild_reactor = number bacterie
 @export var game_output = {
 	"algae" = 0.0,
-	"yield_reactor" = 0.0,
-	"glucose" = 0.0
+	"yield_reactor" = 0.0
 }
 
 ### Time ###

@@ -40,7 +40,8 @@ Return 1 if sucess else -1
 func modify_input(v: String, value) -> int:
 	if _private_is_float(value):
 		#TODO: pensez a modifier ici
-		value = value + 0.2
+		#Potenciellement inutile
+		value = value + 0.0
 		match v:
 			"light":
 				print("[*] modify ligh")
@@ -105,6 +106,9 @@ func check_production():
 Update gamestate for new day
 """
 func _private_progress_day():
+	if check_death():
+		#TODO: Action when player loose
+		print("Perdu")
 	_private_update_output()
 	_private_update_day()
 	print_all_vars()
@@ -116,7 +120,6 @@ func _private_update_output():
 	#TODO: Place reel equation
 	GameVar.game_output["algae"] += 0.1
 	GameVar.game_output["yield_reactor"] += 0.1
-	GameVar.game_output["glucose"] += 0.1
 	
 
 """
@@ -174,11 +177,26 @@ func slider_glucose(v: float):
 	if not modify_input("glucose", v):
 		printerr("[-] Error click button, value modify_input slider_dilution")
 
+# Préchargez vos textures
+var texture1 = preload("res://Script/full.png")
+var texture2 = preload("res://Script/full2.png")
+
+# Variable pour suivre l'état du bouton
+var is_first_image = true
 
 """
 Function link buttom to next day
 """
 func next_day():
+	# Référence à votre TextureRect
+	var image = get_node("%troll")
+	# Changez la texture de l'image lorsque le bouton est pressé
+	if is_first_image:
+		image.texture = texture2
+	else:
+		image.texture = texture1
+	# Inversez l'état du bouton
+	is_first_image = !is_first_image
 	print("[*] Next day pressed")
 	_private_progress_day()
 

@@ -32,7 +32,7 @@ color = Color(0.160784, 0.160784, 0.160784, 1)
 [node name="buttons" type="VBoxContainer" parent="Control"]
 layout_mode = 0
 offset_right = 726.0
-offset_bottom = 559.0
+offset_bottom = 1031.0
 alignment = 1
 
 [node name="Light" type="TextEdit" parent="Control/buttons"]
@@ -47,7 +47,7 @@ size_flags_vertical = 3
 [node name="Dilution" type="TextEdit" parent="Control/buttons"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Light"
+text = "Dilution"
 
 [node name="sliderdilution" type="HSlider" parent="Control/buttons"]
 layout_mode = 2
@@ -56,9 +56,14 @@ size_flags_vertical = 3
 [node name="Glucose" type="TextEdit" parent="Control/buttons"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Light"
+text = "Glucose"
 
 [node name="sliderglucose" type="HSlider" parent="Control/buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="troll" type="TextureRect" parent="Control/buttons"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
