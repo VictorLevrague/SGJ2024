@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://db1vvryg1338y"]
-
-[node name="Resource" type="HBoxContainer"]
-
-[node name="Icon" type="TextureRect" parent="."]
-layout_mode = 2
-
-[node name="Nb" type="TextEdit" parent="."]
-layout_mode = 2

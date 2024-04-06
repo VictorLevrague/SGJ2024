@@ -1,14 +1,7 @@
-<<<<<<< Updated upstream
-[gd_scene load_steps=7 format=3 uid="uid://pycu6jrr5unv"]
+[gd_scene load_steps=7 format=3 uid="uid://huppnw00a70w"]
 
 [ext_resource type="Script" path="res://Script/bacteria_reactor.gd" id="1_qcco3"]
 [ext_resource type="PackedScene" uid="uid://c13t6vg1y1clr" path="res://Scenes/bacteria.tscn" id="2_1th1d"]
-=======
-[gd_scene load_steps=7 format=3 uid="uid://we8xb1wvtrq0"]
-
-[ext_resource type="Script" path="res://Script/bacteria_reactor.gd" id="1_qcco3"]
-[ext_resource type="PackedScene" uid="uid://d3ldck7h8spqs" path="res://Scenes/bacteria.tscn" id="2_1th1d"]
->>>>>>> Stashed changes
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tyw23"]
 size = Vector2(48, 876)
