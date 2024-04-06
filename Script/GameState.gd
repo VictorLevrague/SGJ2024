@@ -45,27 +45,27 @@ func modify_input(v: String, value) -> int:
 		match v:
 			"light":
 				print("[*] modify ligh")
-				GameVar.game_intput["light"] = value
+				GameVar.game_input["light"] = value
 				return 1
 			"dilution":
 				print("[*] modify dilution")
-				GameVar.game_intput["dilution"] = value
+				GameVar.game_input["dilution"] = value
 				return 1
 			"glucose":
 				print("[*] modify glucose")
-				GameVar.game_intput["glucose"] = value
+				GameVar.game_input["glucose"] = value
 				return 1
 			"algae":
 				print("[*] modify algae")
-				GameVar.game_intput["algae"] = value
+				GameVar.game_input["algae"] = value
 				return 1
 			"yield_reactor":
 				print("[*] modify yield_reactor")
-				GameVar.game_intput["yield_reactor"] = value
+				GameVar.game_input["yield_reactor"] = value
 				return 1
 			"glucose":
 				print("[*] modify glucose")
-				GameVar.game_intput["glucose"] = value
+				GameVar.game_input["glucose"] = value
 				return 1
 			_:
 				printerr("[-] Error name var input in modify_input")
@@ -91,6 +91,7 @@ Check if the playe is death
 Return 1 if player death else 0
 """
 func check_death() -> int:
+	#TODO: add verification to minamal produc
 	#Playe wasn't immunity
 	if GameVar.time["day"] >= GameVar.immunity_day:
 		if GameVar.game_output["algae"] <= 0.0:
@@ -109,6 +110,7 @@ func _private_progress_day():
 	if check_death():
 		#TODO: Action when player loose
 		print("Perdu")
+	#TODO: add update mimale produce
 	_private_update_output()
 	_private_update_day()
 	print_all_vars()
@@ -131,10 +133,23 @@ func _private_f2() -> float:
 	var m_light = GameVar.game_input["light"]
 	var m_dilution = GameVar.game_input["dilution"]
 	var m_glucose = GameVar.game_input["glucose"]
-	var m_yield_reactor = GameVar.game_output["yield_reactor"]
+	##var m_yield_reactor = GameVar.game_output["yield_reactor"]
 	#TODO: complete the calcule 
 	var r = 0
 	return 0.0
+
+"""
+Update minimale produce 
+"""
+func _private_minimal_produce_update():
+	#TODO: A faire
+	pass
+
+"""
+Update minial ressource need 
+"""
+func _private_update_minimal_ressource_needed():
+	pass
 
 """
 Calcul the new value of output for new day
