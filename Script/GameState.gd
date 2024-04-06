@@ -98,8 +98,9 @@ func _private_progress_day():
 		print("Perdu")
 		assert(false, "Loose")
 	#TODO: add update mimale produce
-	_private_update_output() #Fait
 	_private_update_day()    #Fait
+	_private_update_output() #Fait
+	
 	print_all_vars()
 	_private_dump_value_terminal()
 	#CHECK VALUE OF GAME STATE
@@ -159,7 +160,8 @@ func _private_update_output():
 Update time game (add 1 to day)
 """
 func _private_update_day():
-	GameVar.time_in_game = GameVar.time_in_game + GameVar.slider_time_value
+	GameVar.time_in_game = GameVar.time_in_game + 24
+	#GameVar.time_in_game = GameVar.time_in_game + GameVar.slider_time_value
 	GameVar.action_player["nb_action"] += 1
 
 """
@@ -281,8 +283,8 @@ func _private_conv_glucose(value) -> float:
 
 """
 Convert slider time in using value
-f: [0-100] -> [0-5]
-	x      -> (x/20)
+f: [0-100] -> [0-10]
+	x      -> (x/10)
 """
 func _private_conv_time(value) -> float:
 	return (value / 10)

@@ -6,7 +6,7 @@ All global var
 """
 #It's number action when the player can lose
 #Action is when player click on next 
-@export var immunity_action = 20
+@export var immunity_action = 0
 
 
 #Minimal value needed 
@@ -19,6 +19,7 @@ All global var
 
 
 ### Input ###
+#DEVALUATE
 @export var game_input = {
 	"light" = 0.0,
 	"dilution" = 0.0,
@@ -28,6 +29,7 @@ All global var
 
 ### Output ###
 ##Yeild_reactor = number bacterie
+#DEVALUATE
 @export var game_output = {
 	"algae" = 0.0,
 	"yield_reactor" = 0.0
