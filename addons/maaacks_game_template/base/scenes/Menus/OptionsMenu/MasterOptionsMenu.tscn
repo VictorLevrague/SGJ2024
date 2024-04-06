@@ -21,7 +21,6 @@ anchor_bottom = 1.0
 tab_alignment = 1
 
 [node name="Controls" parent="TabContainer" instance=ExtResource("4")]
-visible = false
 layout_mode = 2
 
 [node name="Audio" parent="TabContainer" instance=ExtResource("1")]

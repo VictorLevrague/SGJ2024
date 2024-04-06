@@ -1,15 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://c6k5nnpbypshi"]
+[gd_scene load_steps=6 format=3 uid="uid://c6k5nnpbypshi"]
 
 [ext_resource type="Script" path="res://addons/maaacks_game_template/base/scenes/Menus/MainMenu/MainMenu.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://bvwl11s2p0hd" path="res://addons/maaacks_game_template/base/scenes/Menus/OptionsMenu/MasterOptionsMenu.tscn" id="2_67m86"]
 [ext_resource type="PackedScene" uid="uid://t2dui8ppm3a4" path="res://addons/maaacks_game_template/base/scenes/Credits/Credits.tscn" id="3_5dhvp"]
 [ext_resource type="Script" path="res://addons/maaacks_game_template/base/scripts/CaptureFocus.gd" id="4_l1ebe"]
-[ext_resource type="FontFile" uid="uid://cjvs8h16wjigu" path="res://A7/font/Montserrat-Regular.ttf" id="5_44l7f"]
 [ext_resource type="Script" path="res://addons/maaacks_game_template/base/scripts/UISoundController.gd" id="6_bs342"]
-[ext_resource type="Texture2D" uid="uid://byowwwdx60nmm" path="res://A7/Cadre_Controle.svg" id="6_x0etb"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_byp37"]
-texture = ExtResource("6_x0etb")
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -72,13 +67,19 @@ theme_override_constants/margin_top = 16
 [node name="TitlesContainer" type="VBoxContainer" parent="MenuContainer/VBoxContainer/TitlesMargin"]
 layout_mode = 2
 
-[node name="Title" type="TextureRect" parent="MenuContainer/VBoxContainer/TitlesMargin/TitlesContainer"]
-visible = false
-custom_minimum_size = Vector2(600, 300)
+[node name="Title" type="Label" parent="MenuContainer/VBoxContainer/TitlesMargin/TitlesContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-expand_mode = 1
+theme_override_font_sizes/font_size = 48
+text = "Bacterieeeeeee"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SubTitle" type="Label" parent="MenuContainer/VBoxContainer/TitlesMargin/TitlesContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Attrape-les "
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MenuMargin" type="MarginContainer" parent="MenuContainer/VBoxContainer"]
 layout_mode = 2
@@ -88,22 +89,17 @@ theme_override_constants/margin_bottom = 16
 
 [node name="MenuButtons" type="VBoxContainer" parent="MenuContainer/VBoxContainer/MenuMargin"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
 theme_override_constants/separation = 16
 alignment = 1
 script = ExtResource("4_l1ebe")
 
 [node name="PlayButton" type="Button" parent="MenuContainer/VBoxContainer/MenuMargin/MenuButtons"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 70)
+custom_minimum_size = Vector2(128, 40)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_44l7f")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxTexture_byp37")
-text = "Jouer"
+text = "Play"
 
 [node name="OptionsButton" type="Button" parent="MenuContainer/VBoxContainer/MenuMargin/MenuButtons"]
 unique_name_in_owner = true
