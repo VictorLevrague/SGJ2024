@@ -8,6 +8,7 @@ func _ready():
 	pass
 
 func _process(float):
+	setup_label()
 	update_gui()
 	
 
@@ -131,35 +132,45 @@ func print_all_vars():
 	print("immunity_day: ", GameVar.immunity_day)
 	print("game_intput: ", GameVar.game_intput)
 	print("game_output: ", GameVar.game_output)
-	print("time: ", GameVar.time)
+	
+
+"""
+Return all game variable (use for label print)
+"""
+func _private_dump_all_value_string() -> String:
+	var s = "immunity_day: " + str(GameVar.immunity_day) + "\n"
+	s += "game_intput: " + str(GameVar.game_intput) + "\n"
+	s += "game_output: " +  str(GameVar.game_output) + "\n"
+	return str(s)
+	
 
 
 """
 Function link to light slider
 """
-func slider_light():
+func slider_light(v: float):
 	#TODO: add in parameters value of slider
 	print("[*] slider light used")
-	if not modify_input("light", GameVar.game_intput["light"]):
+	if not modify_input("light", v):
 		printerr("[-] Error click button, value modify_input slider_light")
 
 """
 Function link to dilution slider
 """
-func slider_dilution():
+func slider_dilution(v: float):
 	#TODO: add in parameters value of slider
 	print("[*] slider dilution used")
-	if not modify_input("dilution", GameVar.game_intput["dilution"]):
+	if not modify_input("dilution", v):
 		printerr("[-] Error click button, value modify_input slider_dilution")
 	
 
 """
 Function link to glucose slider
 """
-func slider_glucose():
+func slider_glucose(v: float):
 	#TODO: add in parameters value of slider
 	print("[*] slider glucose used")
-	if not modify_input("glucose", GameVar.game_intput["glucose"]):
+	if not modify_input("glucose", v):
 		printerr("[-] Error click button, value modify_input slider_dilution")
 
 
@@ -175,24 +186,24 @@ func next_day():
 var my_var = 123
 
 func setup_label():
-	var my_label = get_node("Label")
-	$Label.text = str("test")
+	var my_label = get_node("%Label")
+	##$Label.text = str("test")
 	if my_label != null:
-		my_label.text = str(my_var)
+		my_label.text = str(_private_dump_all_value_string())
 	else:
 		printerr("[-] Label node is not initialized")
 
 func _on_button_pressed():
-	slider_light()
+	slider_light(0.0)
 
 
 func _on_sliderdilution_pressed():
-	slider_dilution()
+	slider_dilution(0.0)
 
 
 
 func _on_sliderglucose_pressed():
-	slider_glucose()
+	slider_glucose(0.0)
 
 
 func _on_nextdaybutton_pressed():

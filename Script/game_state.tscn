@@ -65,6 +65,7 @@ size_flags_vertical = 3
 text = "next day"
 
 [node name="Label" type="Label" parent="Control/buttonright"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
