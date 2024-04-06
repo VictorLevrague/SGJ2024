@@ -15,6 +15,7 @@ func _process(float):
 """
 Take value i and return 1 if the type is TYPE_FLOAT
 else return 0
+DEVALUATE
 """
 func _private_is_float(i) -> int:
 	if typeof(i) == TYPE_FLOAT:
@@ -25,6 +26,7 @@ func _private_is_float(i) -> int:
 """
 Take value i and return 1 if the type is TYPE_INT
 else return 0
+DEVALUATE
 """
 func _private_is_int(i) -> int:
 	if typeof(i) == TYPE_INT:
@@ -33,6 +35,7 @@ func _private_is_int(i) -> int:
 		return 0
 
 """
+Private function
 Take a string in input, input is name of var and value 
 the new value of var
 Return 1 if sucess else -1
@@ -74,8 +77,10 @@ Return 1 if player death else 0
 func check_death() -> int:
 	#TODO: add verification to minamal produc
 	#Playe wasn't immunity
+	var epsilon = 0.0001
 	if GameVar.action_player["nb_action"] >= GameVar.immunity_action:
-		if GameVar.game_output["algae"] <= 0.0:
+		var c = Calcule.state["c"]
+		if c <= (0.0 + epsilon):
 			return 1
 		else:
 			return 0
@@ -126,7 +131,8 @@ func _private_f2() -> float:
 	return 0.0
 
 """
-Update minimale produce 
+Update minimale produce
+Devaluate
 """
 func _private_minimal_produce_update():
 	#TODO: A faire
