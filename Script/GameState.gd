@@ -151,8 +151,8 @@ func _private_update_output():
 Update time game (add 1 to day)
 """
 func _private_update_day():
-	GameVar.time_in_game = GameVar.time_in_game + 24
-	#GameVar.time_in_game = GameVar.time_in_game + GameVar.slider_time_value
+	#GameVar.time_in_game = GameVar.time_in_game + 24
+	GameVar.time_in_game = GameVar.time_in_game + GameVar.slider_time_value
 	GameVar.action_player["nb_action"] += 1
 
 """
