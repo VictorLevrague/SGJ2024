@@ -1,0 +1,261 @@
+[gd_scene load_steps=21 format=3 uid="uid://bmpk5gqctgbrx"]
+
+[ext_resource type="Script" path="res://Script/GameState.gd" id="1_2k4vx"]
+[ext_resource type="Texture2D" uid="uid://btsfehiev8plu" path="res://A7/light.png" id="2_3hdml"]
+[ext_resource type="FontFile" uid="uid://ckm3povkpu5p2" path="res://A7/font/MOBY-REG.TTF" id="2_lldfd"]
+[ext_resource type="Texture2D" uid="uid://gwes8mb4w1yg" path="res://A7/background.svg" id="2_qo647"]
+[ext_resource type="Texture2D" uid="uid://cigp7o6vojrwd" path="res://A7/icon-panel.svg" id="3_4xj1s"]
+[ext_resource type="Texture2D" uid="uid://cw2ky21shsr0n" path="res://A7/dilution.png" id="3_8rbrq"]
+[ext_resource type="Texture2D" uid="uid://b8jo2biut3fx2" path="res://A7/dot-slider.svg" id="4_0kpnb"]
+[ext_resource type="Texture2D" uid="uid://cmr5dv84nidp4" path="res://A7/glucose.png" id="5_3rprc"]
+[ext_resource type="Texture2D" uid="uid://2rxfv42n30cl" path="res://A7/style-slider.svg" id="5_o0fnr"]
+[ext_resource type="Texture2D" uid="uid://diu85nfspqov4" path="res://A7/dot-slider-hold.svg" id="5_oqppq"]
+[ext_resource type="Texture2D" uid="uid://3w3gpgdwl1nd" path="res://A7/Cadre_Controle.svg" id="6_d5h74"]
+[ext_resource type="Texture2D" uid="uid://ckwnwgravtso7" path="res://A7/time.svg" id="12_i74jk"]
+[ext_resource type="Texture2D" uid="uid://fsul7wjah4s" path="res://A7/algbactday.svg" id="13_omtjn"]
+[ext_resource type="Texture2D" uid="uid://khxaabkpk8wm" path="res://A7/button-skip-time.svg" id="14_7m41b"]
+[ext_resource type="FontFile" uid="uid://b8k3mv5x17uvo" path="res://A7/font/Montserrat-SemiBold.ttf" id="14_hudrj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_us1ng"]
+texture = ExtResource("5_o0fnr")
+expand_margin_left = 9.0
+expand_margin_top = 16.0
+expand_margin_right = 14.0
+expand_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g71sl"]
+texture = ExtResource("5_o0fnr")
+expand_margin_left = 9.0
+expand_margin_top = 16.0
+expand_margin_right = 14.0
+expand_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a5d1l"]
+texture = ExtResource("5_o0fnr")
+expand_margin_left = 9.0
+expand_margin_top = 16.0
+expand_margin_right = 14.0
+expand_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gm8js"]
+texture = ExtResource("5_o0fnr")
+expand_margin_left = 9.0
+expand_margin_top = 16.0
+expand_margin_right = 14.0
+expand_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1bd2c"]
+texture = ExtResource("14_7m41b")
+
+[node name="GameState" type="Node"]
+script = ExtResource("1_2k4vx")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1916.0
+offset_bottom = 1082.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -957.0
+offset_top = -534.0
+offset_right = 963.0
+offset_bottom = 546.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="TextureRect" parent="Control/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_qo647")
+
+[node name="toprightnotch" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1299.0
+offset_bottom = 166.0
+grow_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="Control/toprightnotch"]
+layout_mode = 2
+texture = ExtResource("13_omtjn")
+
+[node name="controlpanel" type="VBoxContainer" parent="Control"]
+layout_mode = 2
+offset_left = 30.0
+offset_top = 353.0
+offset_right = 498.0
+offset_bottom = 981.0
+
+[node name="TextureRect" type="TextureRect" parent="Control/controlpanel"]
+layout_mode = 2
+texture = ExtResource("6_d5h74")
+
+[node name="TextureButton" type="TextureButton" parent="Control/controlpanel/TextureRect"]
+layout_mode = 2
+offset_left = 384.0
+offset_top = 10.0
+offset_right = 852.0
+offset_bottom = 74.0
+texture_normal = ExtResource("3_4xj1s")
+
+[node name="Label" type="Label" parent="Control/controlpanel/TextureRect"]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 20.0
+offset_right = 270.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 31
+text = "Contrôle"
+
+[node name="sliders" type="VBoxContainer" parent="Control"]
+layout_mode = 2
+offset_left = 50.0
+offset_top = 480.0
+offset_right = 456.0
+offset_bottom = 844.0
+alignment = 1
+
+[node name="title_light" type="HBoxContainer" parent="Control/sliders"]
+layout_mode = 2
+
+[node name="Light" type="Label" parent="Control/sliders/title_light"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.35
+theme_override_fonts/font = ExtResource("2_lldfd")
+theme_override_font_sizes/font_size = 24
+text = "Lumière"
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control/sliders/title_light"]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+texture = ExtResource("2_3hdml")
+expand_mode = 1
+
+[node name="sliderlightbutton" type="HSlider" parent="Control/sliders"]
+layout_mode = 2
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.3
+theme_override_icons/grabber = ExtResource("4_0kpnb")
+theme_override_icons/grabber_highlight = ExtResource("5_oqppq")
+theme_override_styles/slider = SubResource("StyleBoxTexture_us1ng")
+
+[node name="title_dilution" type="HBoxContainer" parent="Control/sliders"]
+custom_minimum_size = Vector2(40, 20)
+layout_mode = 2
+
+[node name="Dilution" type="Label" parent="Control/sliders/title_dilution"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_lldfd")
+theme_override_font_sizes/font_size = 24
+text = "
+Dilution"
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control/sliders/title_dilution"]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+texture = ExtResource("3_8rbrq")
+expand_mode = 1
+
+[node name="sliderdilution" type="HSlider" parent="Control/sliders"]
+layout_mode = 2
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.3
+theme_override_icons/grabber = ExtResource("4_0kpnb")
+theme_override_icons/grabber_highlight = ExtResource("5_oqppq")
+theme_override_styles/slider = SubResource("StyleBoxTexture_g71sl")
+
+[node name="title_glucose" type="HBoxContainer" parent="Control/sliders"]
+layout_mode = 2
+
+[node name="Glucose" type="Label" parent="Control/sliders/title_glucose"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_lldfd")
+theme_override_font_sizes/font_size = 24
+text = "Glucose"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control/sliders/title_glucose"]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+texture = ExtResource("5_3rprc")
+expand_mode = 1
+
+[node name="sliderglucose" type="HSlider" parent="Control/sliders"]
+layout_mode = 2
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.3
+theme_override_icons/grabber = ExtResource("4_0kpnb")
+theme_override_icons/grabber_highlight = ExtResource("5_oqppq")
+theme_override_styles/slider = SubResource("StyleBoxTexture_a5d1l")
+
+[node name="depre_time" type="HBoxContainer" parent="Control/sliders"]
+layout_mode = 2
+
+[node name="time" type="Label" parent="Control/sliders/depre_time"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_lldfd")
+theme_override_font_sizes/font_size = 18
+text = "Temps"
+
+[node name="TextureRect" type="TextureRect" parent="Control/sliders/depre_time"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("12_i74jk")
+expand_mode = 1
+
+[node name="slidertime" type="HSlider" parent="Control/sliders"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+theme_override_icons/grabber = ExtResource("4_0kpnb")
+theme_override_icons/grabber_highlight = ExtResource("5_oqppq")
+theme_override_styles/slider = SubResource("StyleBoxTexture_gm8js")
+
+[node name="troll" type="TextureRect" parent="Control/sliders"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="buttonright" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.037
+offset_left = 1660.0
+offset_top = 45.0
+offset_right = 1910.0
+offset_bottom = 89.966
+
+[node name="nextdaybutton" type="Button" parent="Control/buttonright"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("14_hudrj")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_1bd2c")
+text = "Jour Suivant"
+
+[node name="Label" type="Label" parent="Control/buttonright"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="drag_started" from="Control/sliders/sliderlightbutton" to="." method="_on_sliderlightbutton_drag_started"]
+[connection signal="value_changed" from="Control/sliders/sliderlightbutton" to="." method="_on_sliderlightbutton_value_changed"]
+[connection signal="value_changed" from="Control/sliders/sliderdilution" to="." method="_on_sliderdilution_value_changed"]
+[connection signal="value_changed" from="Control/sliders/sliderglucose" to="." method="_on_sliderglucose_value_changed"]
+[connection signal="pressed" from="Control/buttonright/nextdaybutton" to="." method="_on_nextdaybutton_pressed"]
+[connection signal="ready" from="Control/buttonright/Label" to="." method="_on_label_ready"]
