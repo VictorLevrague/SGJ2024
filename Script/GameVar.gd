@@ -12,6 +12,10 @@ All global var
 @export var start_minimal_algea = 100
 @export var startminimal_yield_reactor = 100
 
+#Time value
+@export var time_in_game = 1
+
+
 ### Input ###
 @export var game_input = {
 	"light" = 0.0,
