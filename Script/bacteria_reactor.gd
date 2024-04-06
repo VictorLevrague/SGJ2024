@@ -2,7 +2,7 @@ extends Control
 
 #@onready var game_var = %GameVar
 #var nb_bacteria: int = game_var.bacteria
-var nb_bacteria: int = 10
+var nb_bacteria: int = 5
 @export var bacteria_scene: PackedScene
 
 func _ready():

@@ -8,6 +8,7 @@
 [node name="MasterOptionsMenu" instance=ExtResource("1_w1bqi")]
 
 [node name="Controls" parent="TabContainer" index="1"]
+visible = true
 add_button_texture = ExtResource("2_mo0t5")
 remove_button_texture = ExtResource("3_5vegs")
 

@@ -14,9 +14,9 @@ func next():
 		SceneLoader.change_scene_to_resource()
 
 func _add_textures_to_container(textures : Array[Texture2D]):
-	for texture in textures:
+	#for texture in textures:
 		var texture_rect : TextureRect = TextureRect.new()
-		texture_rect.texture = texture
+		texture_rect.texture = load("res://A7/AlgoFarm-Logo.png")
 		texture_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		texture_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		texture_rect.visible = false
