@@ -1,0 +1,154 @@
+[gd_scene load_steps=18 format=3 uid="uid://c13t6vg1y1clr"]
+
+[ext_resource type="Script" path="res://Script/bacteria.gd" id="1_cbdqj"]
+[ext_resource type="Shader" path="res://Scenes/blob.gdshader" id="2_5t0rp"]
+[ext_resource type="Texture2D" uid="uid://c5ittvgt43gl3" path="res://A7/bacteria/bacteriaSphere2.png" id="3_134rw"]
+[ext_resource type="Texture2D" uid="uid://bni35hy8to2xe" path="res://A7/bacteria/bacteriaSphere1.png" id="3_qggr1"]
+[ext_resource type="Texture2D" uid="uid://cyxltxsmn7umk" path="res://A7/bacteria/bacteriaCaps1.png" id="4_cilth"]
+[ext_resource type="Texture2D" uid="uid://cxhpw5ucgbj4l" path="res://A7/bacteria/bacteriaSphere3.png" id="5_a7l5i"]
+[ext_resource type="Texture2D" uid="uid://dam7jopubl7ig" path="res://A7/bacteria/bacteriaCaps3.png" id="5_ai233"]
+[ext_resource type="Texture2D" uid="uid://dosth245chwn2" path="res://A7/bacteria/bacteriaSphere4.png" id="6_cxgur"]
+[ext_resource type="Texture2D" uid="uid://e3gbimfr5g53" path="res://A7/bacteria/bacteriaCaps4.png" id="6_sg6db"]
+[ext_resource type="AudioStream" uid="uid://dqyglmnrk0bxd" path="res://SoundBlob/blob.mp3" id="10_8dae5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_woifi"]
+resource_local_to_scene = true
+shader = ExtResource("2_5t0rp")
+shader_parameter/blob = false
+shader_parameter/time_speed = 20.0
+shader_parameter/distance = 100.0
+shader_parameter/attenuation = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x4rmw"]
+radius = 289.007
+
+[sub_resource type="Animation" id="Animation_g8ne6"]
+resource_name = "FadeAppear"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.160784), Color(1, 1, 1, 0.380392), Color(1, 1, 1, 0.72549), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_yotqi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.72549)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_134rw")]
+}
+
+[sub_resource type="Animation" id="Animation_ghxh3"]
+resource_name = "BacteriaCapsAnim"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("4_cilth"), ExtResource("4_cilth"), ExtResource("5_ai233"), ExtResource("6_sg6db")]
+}
+
+[sub_resource type="Animation" id="Animation_25u57"]
+resource_name = "BacteriaSphereAnim"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_qggr1"), ExtResource("3_134rw"), ExtResource("5_a7l5i"), ExtResource("6_cxgur")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jgoly"]
+_data = {
+"BacteriaCapsAnim": SubResource("Animation_ghxh3"),
+"BacteriaSphereAnim": SubResource("Animation_25u57"),
+"FadeAppear": SubResource("Animation_g8ne6"),
+"RESET": SubResource("Animation_yotqi")
+}
+
+[node name="Bacteria" type="CharacterBody2D"]
+script = ExtResource("1_cbdqj")
+
+[node name="Sprite" type="TextureRect" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.72549)
+material = SubResource("ShaderMaterial_woifi")
+offset_left = 17.0
+offset_right = 591.0
+offset_bottom = 528.0
+texture = ExtResource("3_134rw")
+expand_mode = 1
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(288, 250)
+shape = SubResource("CircleShape2D_x4rmw")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(288, 250)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_x4rmw")
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 2.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_jgoly")
+}
+
+[node name="TimerAttenuation" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.4
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("10_8dae5")
+
+[connection signal="gui_input" from="Sprite" to="." method="_on_sprite_gui_input"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="TimerAttenuation" to="." method="_on_timer_attenuation_timeout"]

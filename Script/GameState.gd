@@ -15,6 +15,7 @@ func _process(float):
 """
 Take value i and return 1 if the type is TYPE_FLOAT
 else return 0
+DEVALUATE
 """
 func _private_is_float(i) -> int:
 	if typeof(i) == TYPE_FLOAT:
@@ -25,6 +26,7 @@ func _private_is_float(i) -> int:
 """
 Take value i and return 1 if the type is TYPE_INT
 else return 0
+DEVALUATE
 """
 func _private_is_int(i) -> int:
 	if typeof(i) == TYPE_INT:
@@ -33,6 +35,7 @@ func _private_is_int(i) -> int:
 		return 0
 
 """
+Private function
 Take a string in input, input is name of var and value 
 the new value of var
 Return 1 if sucess else -1
@@ -74,11 +77,12 @@ Return 1 if player death else 0
 func check_death() -> int:
 	#TODO: add verification to minamal produc
 	#Playe wasn't immunity
-	if GameVar.action_player["nb_action"] >= GameVar.immunity_action:
-		if GameVar.game_output["algae"] <= 0.0:
-			return 1
-		else:
-			return 0
+	var epsilon = 0.001
+	var c = Calcule.state["c"]
+	if c <= (0.0 + epsilon):
+		return 1
+	else:
+		return 0
 	return 0
 
 func check_production():
@@ -93,8 +97,9 @@ func _private_progress_day():
 		print("Perdu")
 		assert(false, "Loose")
 	#TODO: add update mimale produce
-	_private_update_output() #Fait
 	_private_update_day()    #Fait
+	_private_update_output() #Fait
+	
 	print_all_vars()
 	_private_dump_value_terminal()
 	#CHECK VALUE OF GAME STATE
@@ -126,7 +131,8 @@ func _private_f2() -> float:
 	return 0.0
 
 """
-Update minimale produce 
+Update minimale produce
+Devaluate
 """
 func _private_minimal_produce_update():
 	#TODO: A faire
@@ -136,14 +142,6 @@ func _private_minimal_produce_update():
 Calcul the new value of output for new day
 """
 func _private_update_output():
-	#TODO: Place reel equation
-	"""
-	Algo:
-		Calcule yield_reactor
-		Actualiser la valeur de yield_reactor (f1)
-		Calculer algae
-		Actualiser la valeur de algae (f2)
-	"""
 	Calcule.update_state(GameVar.time_in_game, Calcule.state, Calcule.input)
 	#GameVar.game_output["algae"] += 0.1
 	#GameVar.game_output["yield_reactor"] += 0.1
@@ -153,6 +151,7 @@ func _private_update_output():
 Update time game (add 1 to day)
 """
 func _private_update_day():
+	#GameVar.time_in_game = GameVar.time_in_game + 24
 	GameVar.time_in_game = GameVar.time_in_game + GameVar.slider_time_value
 	GameVar.action_player["nb_action"] += 1
 
@@ -275,8 +274,8 @@ func _private_conv_glucose(value) -> float:
 
 """
 Convert slider time in using value
-f: [0-100] -> [0-5]
-	x      -> (x/20)
+f: [0-100] -> [0-10]
+	x      -> (x/10)
 """
 func _private_conv_time(value) -> float:
 	return (value / 10)
@@ -298,6 +297,9 @@ func _on_sliderglucose_value_changed(value):
 
 func _on_slidertime_value_changed(value):
 	value = _private_conv_time(value)
+	#Pansement
+	if value == 0:
+		value = 1
 	print("Slider timer: " + str(value))
 	slider_timer(value)
 
