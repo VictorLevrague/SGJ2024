@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csj8hhm0gwa55"
-path="res://.godot/imported/dot-slider.svg-bc571d6c6fe8a4a17986402a885393ba.ctex"
+uid="uid://dpxyf187c61hy"
+path="res://.godot/imported/ICON_Glucose.svg-0e8eef4c8937344d1d76db81abf1a92e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://A7/dot-slider.svg"
-dest_files=["res://.godot/imported/dot-slider.svg-bc571d6c6fe8a4a17986402a885393ba.ctex"]
+source_file="res://A7/ICON_Glucose.svg"
+dest_files=["res://.godot/imported/ICON_Glucose.svg-0e8eef4c8937344d1d76db81abf1a92e.ctex"]
 
 [params]
 

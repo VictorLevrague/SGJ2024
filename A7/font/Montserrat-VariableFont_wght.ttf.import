@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bxsjx1xtqxao"
-path="res://.godot/imported/MOBY-REG.TTF-c3ef8db0a8ffe6943fbee9a0648033eb.fontdata"
+uid="uid://i8mn7n2ulhl3"
+path="res://.godot/imported/Montserrat-VariableFont_wght.ttf-c0340d03f0457d69d52b996f3b473000.fontdata"
 
 [deps]
 
-source_file="res://A7/font/MOBY-REG.TTF"
-dest_files=["res://.godot/imported/MOBY-REG.TTF-c3ef8db0a8ffe6943fbee9a0648033eb.fontdata"]
+source_file="res://A7/font/Montserrat-VariableFont_wght.ttf"
+dest_files=["res://.godot/imported/Montserrat-VariableFont_wght.ttf-c0340d03f0457d69d52b996f3b473000.fontdata"]
 
 [params]
 

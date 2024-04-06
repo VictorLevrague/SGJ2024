@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csj8hhm0gwa55"
-path="res://.godot/imported/dot-slider.svg-bc571d6c6fe8a4a17986402a885393ba.ctex"
+uid="uid://fsul7wjah4s"
+path="res://.godot/imported/algbactday.svg-915b4aa6d11f52a22161197001757f1c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://A7/dot-slider.svg"
-dest_files=["res://.godot/imported/dot-slider.svg-bc571d6c6fe8a4a17986402a885393ba.ctex"]
+source_file="res://A7/algbactday.svg"
+dest_files=["res://.godot/imported/algbactday.svg-915b4aa6d11f52a22161197001757f1c.ctex"]
 
 [params]
 

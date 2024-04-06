@@ -38,47 +38,28 @@ the new value of var
 Return 1 if sucess else -1
 """
 func modify_input(v: String, value) -> int:
-	if _private_is_float(value):
-		#TODO: pensez a modifier ici
-		#Potenciellement inutile
-		value = value + 0.0
-		match v:
-			"light":
-				print("[*] modify ligh")
-				GameVar.game_input["light"] = value
-				return 1
-			"dilution":
-				print("[*] modify dilution")
-				GameVar.game_input["dilution"] = value
-				return 1
-			"glucose":
-				print("[*] modify glucose")
-				GameVar.game_input["glucose"] = value
-				return 1
-			"algae":
-				print("[*] modify algae")
-				GameVar.game_input["algae"] = value
-				return 1
-			"yield_reactor":
-				print("[*] modify yield_reactor")
-				GameVar.game_input["yield_reactor"] = value
-				return 1
-			"glucose":
-				print("[*] modify glucose")
-				GameVar.game_input["glucose"] = value
-				return 1
-			_:
-				printerr("[-] Error name var input in modify_input")
-				return -1
-	if _private_is_int(value):
-		match v:
-			"day":
-				print("[*] modify day")
-				GameVar.game_input["day"] = value
-				return 1
-			_:
-				printerr("[-] Error name var input input in modify_input")
-				return -1
+	#TODO: pensez a modifier ici
+	#Potenciellement inutile
+	value = value + 0.0
+	match v:
+		"light":
+			print("[*] modify ligh")
+			#GameVar.game_input["light"] = value
+			Calcule.input["alpha"] = value
+			return 1
+		"dilution":
+			print("[*] modify dilution")
+			#GameVar.game_input["dilution"] = value
+			Calcule.input["d"] = value
+			return 1
+		"glucose":
+			print("[*] modify glucose")
+			#GameVar.game_input["glucose"] = value
+			Calcule.input["s_in"] = value
+			return 1
+		_:
+			printerr("[-] Error name var input in modify_input")
+			return -1
 	printerr("[-] Error value is invalid in modify_input")
 	return -1
 
@@ -93,7 +74,7 @@ Return 1 if player death else 0
 func check_death() -> int:
 	#TODO: add verification to minamal produc
 	#Playe wasn't immunity
-	if GameVar.time["day"] >= GameVar.immunity_day:
+	if GameVar.action_player["nb_action"] >= GameVar.immunity_action:
 		if GameVar.game_output["algae"] <= 0.0:
 			return 1
 		else:
@@ -110,10 +91,14 @@ func _private_progress_day():
 	if check_death():
 		#TODO: Action when player loose
 		print("Perdu")
+		assert(false, "Loose")
 	#TODO: add update mimale produce
-	_private_update_output()
-	_private_update_day()
+	_private_update_output() #Fait
+	_private_update_day()    #Fait
 	print_all_vars()
+	_private_dump_value_terminal()
+	#CHECK VALUE OF GAME STATE
+	_private_check_value()
 
 """
 Function for calcul output: yield_reactor
@@ -159,6 +144,7 @@ func _private_update_output():
 		Calculer algae
 		Actualiser la valeur de algae (f2)
 	"""
+	Calcule.update_state(GameVar.time_in_game, Calcule.state, Calcule.input)
 	#GameVar.game_output["algae"] += 0.1
 	#GameVar.game_output["yield_reactor"] += 0.1
 	
@@ -167,13 +153,14 @@ func _private_update_output():
 Update time game (add 1 to day)
 """
 func _private_update_day():
-	GameVar.time["day"] += 1
+	GameVar.time_in_game = GameVar.time_in_game + GameVar.slider_time_value
+	GameVar.action_player["nb_action"] += 1
 
 """
 Print all var in terminal 
 """
 func print_all_vars():
-	print("immunity_day: ", GameVar.immunity_day)
+	print("immunity_day: ", GameVar.immunity_action)
 	print("game_output: ", GameVar.game_output)
 	
 
@@ -181,13 +168,16 @@ func print_all_vars():
 Return all game variable (use for label print)
 """
 func _private_dump_all_value_string() -> String:
-	var s = "immunity_day: " + str(GameVar.immunity_day) + "\n"
-	s += "game_intput: " + str(GameVar.game_input) + "\n"
-	s += "game_output: " +  str(GameVar.game_output) + "\n"
-	s += "day: " + str(GameVar.time) + "\n"
+	var s = "immunity_day: " + str(GameVar.immunity_action) + "\n"
+	s += "game_state: " + str(Calcule.state) + "\n"
+	s += "game_input: " +  str(Calcule.input) + "\n"
+	s += "hour: " + str(GameVar.time_in_game) + "\n"
+	s += "Time silder: " +str(GameVar.slider_time_value)
 	return str(s)
 	
 
+func _private_dump_value_terminal():
+	print(str(_private_dump_all_value_string()))
 
 """
 Function link to light slider
@@ -216,6 +206,10 @@ func slider_glucose(v: float):
 	print("[*] slider glucose used")
 	if not modify_input("glucose", v):
 		printerr("[-] Error click button, value modify_input slider_dilution")
+
+func slider_timer(v: int):
+	print("[*] slider timer used")
+	GameVar.slider_time_value = v
 
 # Préchargez vos textures
 var texture1 = preload("res://Script/full.png")
@@ -255,15 +249,86 @@ func _on_nextdaybutton_pressed():
 func _on_label_ready():
 	setup_label() # Replace with function body.
 
+"""
+Convert slider light in using value
+f: [0-100] -> [0-1]
+	x      -> (x/100)
+"""
+func _private_conv_light(value) -> float:
+	return (value / 100)
+
+"""
+Convert slider dilution in using value
+f: [0-100] -> [0-2]
+	x      -> (x/50)
+"""
+func _private_conv_dilution(value) -> float:
+	return (value / 50)
+
+"""
+Convert slider glucose in using value
+f: [0-100] -> [0-5]
+	x      -> (x/20)
+"""
+func _private_conv_glucose(value) -> float:
+	return (value / 20)
+
+"""
+Convert slider time in using value
+f: [0-100] -> [0-5]
+	x      -> (x/20)
+"""
+func _private_conv_time(value) -> float:
+	return (value / 10)
+
 func _on_sliderlightbutton_value_changed(value):
+	value = _private_conv_light(value)
+	print("Slider light: " + str(value))
 	slider_light(value)
 
 func _on_sliderdilution_value_changed(value):
+	value = _private_conv_dilution(value)
+	print("Slider dilution: " + str(value))
 	slider_dilution(value)
 
 func _on_sliderglucose_value_changed(value):
+	value = _private_conv_glucose(value)
+	print("Slider glucose: " + str(value))
 	slider_glucose(value)
 
+func _on_slidertime_value_changed(value):
+	value = _private_conv_time(value)
+	print("Slider timer: " + str(value))
+	slider_timer(value)
 
+
+"""
+Teste value of game
+"""
+func _private_check_value():
+	## TEST INPUT VALUE
+	var d  = Calcule.input["d"]
+	var alpha = Calcule.input["alpha"]
+	var s_in  = Calcule.input["s_in"]
+	assert(d <= 2 , "Error d > 2")
+	assert(d >= 0 , "Error d < 0")
+	assert(alpha <= 1 , "Error d > 1")
+	assert(alpha >= 0 , "Error d > 0")
+	assert(s_in <= 5 , "Error d > 5")
+	assert(s_in >= 0 , "Error d > 0")
+	
+	## TEST SLIDER CONVERTION
+	#Time value
+	var time_in_game = GameVar.time_in_game
+	var slider_time_value = GameVar.slider_time_value
+	assert(time_in_game >= 0, "Error time in game is negative")
+	assert(slider_time_value >= 0, "Error slider_time_value < 0")
+	assert(slider_time_value <= 10, "Error slider_time_value > 10")
+
+	## TEST ACTION PLAYER
+	var action_player = GameVar.action_player["nb_action"]
+	var immunity_action = GameVar.immunity_action
+	assert(action_player >= 0, "Error nb of action is negative")
+	assert(immunity_action >= 0, "Error immunity action is negative")
 
 

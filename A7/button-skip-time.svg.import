@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csj8hhm0gwa55"
-path="res://.godot/imported/dot-slider.svg-bc571d6c6fe8a4a17986402a885393ba.ctex"
+uid="uid://khxaabkpk8wm"
+path="res://.godot/imported/button-skip-time.svg-6560120c482b94994cc69a684f72965e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://A7/dot-slider.svg"
-dest_files=["res://.godot/imported/dot-slider.svg-bc571d6c6fe8a4a17986402a885393ba.ctex"]
+source_file="res://A7/button-skip-time.svg"
+dest_files=["res://.godot/imported/button-skip-time.svg-6560120c482b94994cc69a684f72965e.ctex"]
 
 [params]
 
