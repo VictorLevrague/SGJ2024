@@ -35,20 +35,32 @@ offset_right = 726.0
 offset_bottom = 559.0
 alignment = 1
 
-[node name="sliderlightbutton" type="Button" parent="Control/buttons"]
+[node name="Light" type="TextEdit" parent="Control/buttons"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Light"
 
-[node name="sliderdilution" type="Button" parent="Control/buttons"]
+[node name="sliderlightbutton" type="HSlider" parent="Control/buttons"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Dilution"
 
-[node name="sliderglucose" type="Button" parent="Control/buttons"]
+[node name="Dilution" type="TextEdit" parent="Control/buttons"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Glucose"
+text = "Light"
+
+[node name="sliderdilution" type="HSlider" parent="Control/buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Glucose" type="TextEdit" parent="Control/buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Light"
+
+[node name="sliderglucose" type="HSlider" parent="Control/buttons"]
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="buttonright" type="VBoxContainer" parent="Control"]
 layout_mode = 1
@@ -69,8 +81,9 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[connection signal="pressed" from="Control/buttons/sliderlightbutton" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Control/buttons/sliderdilution" to="." method="_on_sliderdilution_pressed"]
-[connection signal="pressed" from="Control/buttons/sliderglucose" to="." method="_on_sliderglucose_pressed"]
+[connection signal="drag_started" from="Control/buttons/sliderlightbutton" to="." method="_on_sliderlightbutton_drag_started"]
+[connection signal="value_changed" from="Control/buttons/sliderlightbutton" to="." method="_on_sliderlightbutton_value_changed"]
+[connection signal="value_changed" from="Control/buttons/sliderdilution" to="." method="_on_sliderdilution_value_changed"]
+[connection signal="value_changed" from="Control/buttons/sliderglucose" to="." method="_on_sliderglucose_value_changed"]
 [connection signal="pressed" from="Control/buttonright/nextdaybutton" to="." method="_on_nextdaybutton_pressed"]
 [connection signal="ready" from="Control/buttonright/Label" to="." method="_on_label_ready"]

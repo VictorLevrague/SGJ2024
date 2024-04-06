@@ -141,6 +141,7 @@ func _private_dump_all_value_string() -> String:
 	var s = "immunity_day: " + str(GameVar.immunity_day) + "\n"
 	s += "game_intput: " + str(GameVar.game_intput) + "\n"
 	s += "game_output: " +  str(GameVar.game_output) + "\n"
+	s += "day: " + str(GameVar.time) + "\n"
 	return str(s)
 	
 
@@ -182,9 +183,6 @@ func next_day():
 	_private_progress_day()
 
 
-#TODO: TEST FOR LABEL DO NOT TOUCH SEGFAULT
-var my_var = 123
-
 func setup_label():
 	var my_label = get_node("%Label")
 	##$Label.text = str("test")
@@ -193,22 +191,19 @@ func setup_label():
 	else:
 		printerr("[-] Label node is not initialized")
 
-func _on_button_pressed():
-	slider_light(0.0)
-
-
-func _on_sliderdilution_pressed():
-	slider_dilution(0.0)
-
-
-
-func _on_sliderglucose_pressed():
-	slider_glucose(0.0)
-
-
 func _on_nextdaybutton_pressed():
 	next_day()
 
-
 func _on_label_ready():
 	setup_label() # Replace with function body.
+
+func _on_sliderlightbutton_value_changed(value):
+	slider_light(value)
+
+func _on_sliderdilution_value_changed(value):
+	slider_dilution(value)
+
+func _on_sliderglucose_value_changed(value):
+	slider_glucose(value)
+
+
