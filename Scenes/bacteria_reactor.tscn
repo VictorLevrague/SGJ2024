@@ -1,0 +1,132 @@
+[gd_scene load_steps=7 format=3 uid="uid://huppnw00a70w"]
+
+[ext_resource type="Script" path="res://Script/bacteria_reactor.gd" id="1_qcco3"]
+[ext_resource type="PackedScene" uid="uid://c13t6vg1y1clr" path="res://Scenes/bacteria.tscn" id="2_1th1d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tyw23"]
+size = Vector2(48, 876)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2hy1"]
+size = Vector2(48, 795)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jxpty"]
+size = Vector2(42, 1625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqyyv"]
+size = Vector2(36.9998, 1589)
+
+[node name="BacteriaReactor" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -854.0
+offset_top = -451.0
+offset_right = 854.0
+offset_bottom = 417.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qcco3")
+bacteria_scene = ExtResource("2_1th1d")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.666667, 0.666667, 0.666667, 1)
+
+[node name="WallLeft" type="ColorRect" parent="ColorRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -431.0
+offset_right = 40.0
+offset_bottom = 431.0
+grow_vertical = 2
+color = Color(0.192157, 0.552941, 0.835294, 1)
+
+[node name="Area2D" type="Area2D" parent="ColorRect/WallLeft"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/WallLeft/Area2D"]
+position = Vector2(14, 428)
+shape = SubResource("RectangleShape2D_tyw23")
+
+[node name="WallRight" type="ColorRect" parent="ColorRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -359.0
+offset_bottom = 431.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0.192157, 0.552941, 0.835294, 1)
+
+[node name="Area2D" type="Area2D" parent="ColorRect/WallRight"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/WallRight/Area2D"]
+position = Vector2(15, 387.5)
+shape = SubResource("RectangleShape2D_a2hy1")
+
+[node name="WallUp" type="ColorRect" parent="ColorRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -33.0
+offset_top = -431.0
+offset_right = 7.0
+offset_bottom = 1187.0
+grow_horizontal = 0
+grow_vertical = 2
+rotation = 1.5708
+color = Color(0.192157, 0.552941, 0.835294, 1)
+
+[node name="Area2D" type="Area2D" parent="ColorRect/WallUp"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/WallUp/Area2D"]
+visible = false
+position = Vector2(20, 802.5)
+shape = SubResource("RectangleShape2D_jxpty")
+
+[node name="WallDown" type="ColorRect" parent="ColorRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -67.0
+offset_top = 391.0
+offset_right = -27.0
+offset_bottom = 1969.0
+grow_horizontal = 0
+grow_vertical = 2
+rotation = 1.5708
+color = Color(0.192157, 0.552941, 0.835294, 1)
+
+[node name="Area2D" type="Area2D" parent="ColorRect/WallDown"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/WallDown/Area2D"]
+position = Vector2(16.4998, 784.5)
+shape = SubResource("RectangleShape2D_gqyyv")
+
+[connection signal="body_entered" from="ColorRect/WallLeft/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="ColorRect/WallRight/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="ColorRect/WallUp/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="ColorRect/WallDown/Area2D" to="." method="_on_area_2d_body_entered"]
