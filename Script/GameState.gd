@@ -130,6 +130,7 @@ func print_all_vars():
 Function link to light slider
 """
 func slider_light():
+	#TODO: add in parameters value of slider
 	print("[*] slider light used")
 	if not modify_input("light", GameVar.game_intput["light"]):
 		printerr("[-] Error click button, value modify_input slider_light")
@@ -138,6 +139,7 @@ func slider_light():
 Function link to dilution slider
 """
 func slider_dilution():
+	#TODO: add in parameters value of slider
 	print("[*] slider dilution used")
 	if not modify_input("dilution", GameVar.game_intput["dilution"]):
 		printerr("[-] Error click button, value modify_input slider_dilution")
@@ -147,6 +149,7 @@ func slider_dilution():
 Function link to glucose slider
 """
 func slider_glucose():
+	#TODO: add in parameters value of slider
 	print("[*] slider glucose used")
 	if not modify_input("glucose", GameVar.game_intput["glucose"]):
 		printerr("[-] Error click button, value modify_input slider_dilution")
