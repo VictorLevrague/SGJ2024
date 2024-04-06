@@ -1,20 +1,20 @@
 [gd_scene load_steps=21 format=3 uid="uid://bmpk5gqctgbrx"]
 
 [ext_resource type="Script" path="res://Script/GameState.gd" id="1_2k4vx"]
-[ext_resource type="Texture2D" uid="uid://btsfehiev8plu" path="res://A7/light.png" id="2_3hdml"]
-[ext_resource type="FontFile" uid="uid://ckm3povkpu5p2" path="res://A7/font/MOBY-REG.TTF" id="2_lldfd"]
-[ext_resource type="Texture2D" uid="uid://gwes8mb4w1yg" path="res://A7/background.svg" id="2_qo647"]
-[ext_resource type="Texture2D" uid="uid://cigp7o6vojrwd" path="res://A7/icon-panel.svg" id="3_4xj1s"]
-[ext_resource type="Texture2D" uid="uid://cw2ky21shsr0n" path="res://A7/dilution.png" id="3_8rbrq"]
-[ext_resource type="Texture2D" uid="uid://b8jo2biut3fx2" path="res://A7/dot-slider.svg" id="4_0kpnb"]
-[ext_resource type="Texture2D" uid="uid://cmr5dv84nidp4" path="res://A7/glucose.png" id="5_3rprc"]
-[ext_resource type="Texture2D" uid="uid://2rxfv42n30cl" path="res://A7/style-slider.svg" id="5_o0fnr"]
-[ext_resource type="Texture2D" uid="uid://diu85nfspqov4" path="res://A7/dot-slider-hold.svg" id="5_oqppq"]
-[ext_resource type="Texture2D" uid="uid://3w3gpgdwl1nd" path="res://A7/Cadre_Controle.svg" id="6_d5h74"]
-[ext_resource type="Texture2D" uid="uid://ckwnwgravtso7" path="res://A7/time.svg" id="12_i74jk"]
-[ext_resource type="Texture2D" uid="uid://fsul7wjah4s" path="res://A7/algbactday.svg" id="13_omtjn"]
+[ext_resource type="Texture2D" uid="uid://gk6av33mre67" path="res://A7/light.png" id="2_3hdml"]
+[ext_resource type="FontFile" uid="uid://eau1bpok362r" path="res://A7/font/MOBYB___.TTF" id="2_lldfd"]
+[ext_resource type="Texture2D" uid="uid://cp700wlihlt41" path="res://A7/background.svg" id="2_qo647"]
+[ext_resource type="Texture2D" uid="uid://dtiq7mdwimnru" path="res://A7/icon-panel.svg" id="3_4xj1s"]
+[ext_resource type="Texture2D" uid="uid://bqhrd8tfktfp5" path="res://A7/dilution.png" id="3_8rbrq"]
+[ext_resource type="Texture2D" uid="uid://bnbd0eqx2vfax" path="res://A7/dot-slider.svg" id="4_0kpnb"]
+[ext_resource type="Texture2D" uid="uid://bihvdplnv4s08" path="res://A7/glucose.png" id="5_3rprc"]
+[ext_resource type="Texture2D" uid="uid://b1petfvt8tvk3" path="res://A7/style-slider.svg" id="5_o0fnr"]
+[ext_resource type="Texture2D" uid="uid://b7sfosrr3vl7l" path="res://A7/dot-slider-hold.svg" id="5_oqppq"]
+[ext_resource type="Texture2D" uid="uid://cs4ri4x583hf5" path="res://A7/Cadre_Controle.svg" id="6_d5h74"]
+[ext_resource type="Texture2D" path="res://A7/time.svg" id="12_i74jk"]
+[ext_resource type="Texture2D" path="res://A7/algbactday.svg" id="13_omtjn"]
 [ext_resource type="Texture2D" uid="uid://khxaabkpk8wm" path="res://A7/button-skip-time.svg" id="14_7m41b"]
-[ext_resource type="FontFile" uid="uid://b8k3mv5x17uvo" path="res://A7/font/Montserrat-SemiBold.ttf" id="14_hudrj"]
+[ext_resource type="FontFile" path="res://A7/font/Montserrat-SemiBold.ttf" id="14_hudrj"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_us1ng"]
 texture = ExtResource("5_o0fnr")
@@ -245,7 +245,6 @@ size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("14_hudrj")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxTexture_1bd2c")
-text = "Jour Suivant"
 
 [node name="Label" type="Label" parent="Control/buttonright"]
 unique_name_in_owner = true
