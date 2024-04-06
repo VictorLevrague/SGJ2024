@@ -1,20 +1,26 @@
-[gd_scene load_steps=21 format=3 uid="uid://bmpk5gqctgbrx"]
+[gd_scene load_steps=29 format=3 uid="uid://bmpk5gqctgbrx"]
 
 [ext_resource type="Script" path="res://Script/GameState.gd" id="1_2k4vx"]
-[ext_resource type="Texture2D" uid="uid://gk6av33mre67" path="res://A7/light.png" id="2_3hdml"]
+[ext_resource type="Texture2D" uid="uid://c751kkye0r5ke" path="res://A7/light.png" id="2_3hdml"]
 [ext_resource type="FontFile" uid="uid://eau1bpok362r" path="res://A7/font/MOBYB___.TTF" id="2_lldfd"]
-[ext_resource type="Texture2D" uid="uid://cp700wlihlt41" path="res://A7/background.svg" id="2_qo647"]
-[ext_resource type="Texture2D" uid="uid://dtiq7mdwimnru" path="res://A7/icon-panel.svg" id="3_4xj1s"]
-[ext_resource type="Texture2D" uid="uid://bqhrd8tfktfp5" path="res://A7/dilution.png" id="3_8rbrq"]
-[ext_resource type="Texture2D" uid="uid://bnbd0eqx2vfax" path="res://A7/dot-slider.svg" id="4_0kpnb"]
-[ext_resource type="Texture2D" uid="uid://bihvdplnv4s08" path="res://A7/glucose.png" id="5_3rprc"]
-[ext_resource type="Texture2D" uid="uid://b1petfvt8tvk3" path="res://A7/style-slider.svg" id="5_o0fnr"]
-[ext_resource type="Texture2D" uid="uid://b7sfosrr3vl7l" path="res://A7/dot-slider-hold.svg" id="5_oqppq"]
-[ext_resource type="Texture2D" uid="uid://cs4ri4x583hf5" path="res://A7/Cadre_Controle.svg" id="6_d5h74"]
-[ext_resource type="Texture2D" path="res://A7/time.svg" id="12_i74jk"]
-[ext_resource type="Texture2D" path="res://A7/algbactday.svg" id="13_omtjn"]
+[ext_resource type="Texture2D" uid="uid://bsw5d41bmh22l" path="res://A7/background.svg" id="2_qo647"]
+[ext_resource type="Texture2D" uid="uid://djsvwc5e5jast" path="res://A7/icon-panel.svg" id="3_4xj1s"]
+[ext_resource type="Texture2D" uid="uid://cdfp5hkarkvv4" path="res://A7/dilution.png" id="3_8rbrq"]
+[ext_resource type="Texture2D" uid="uid://dnx1rnm2ovlu1" path="res://A7/rectangle.svg" id="3_wx7p0"]
+[ext_resource type="Texture2D" uid="uid://csj8hhm0gwa55" path="res://A7/dot-slider.svg" id="4_0kpnb"]
+[ext_resource type="Texture2D" uid="uid://cr1f4qi4icou4" path="res://A7/glucose.png" id="5_3rprc"]
+[ext_resource type="Texture2D" uid="uid://mcj0e746s4jc" path="res://A7/style-slider.svg" id="5_o0fnr"]
+[ext_resource type="Texture2D" uid="uid://cbdj6q4l1wfox" path="res://A7/dot-slider-hold.svg" id="5_oqppq"]
+[ext_resource type="FontFile" uid="uid://cjvs8h16wjigu" path="res://A7/font/Montserrat-Regular.ttf" id="6_2fc57"]
+[ext_resource type="Texture2D" uid="uid://byowwwdx60nmm" path="res://A7/Cadre_Controle.svg" id="6_d5h74"]
+[ext_resource type="Texture2D" uid="uid://ckwnwgravtso7" path="res://A7/time.svg" id="12_i74jk"]
 [ext_resource type="Texture2D" uid="uid://khxaabkpk8wm" path="res://A7/button-skip-time.svg" id="14_7m41b"]
-[ext_resource type="FontFile" path="res://A7/font/Montserrat-SemiBold.ttf" id="14_hudrj"]
+[ext_resource type="Texture2D" uid="uid://04ie5i6bh10r" path="res://A7/dot-slider-value.svg" id="15_0pklc"]
+[ext_resource type="Texture2D" uid="uid://d1tl7nnl11x7k" path="res://A7/dot-slider-value-hold.svg" id="16_pfpmy"]
+[ext_resource type="Texture2D" uid="uid://b3b3vwwxfvmuw" path="res://A7/algbactscore.svg" id="18_4qm36"]
+[ext_resource type="Texture2D" uid="uid://bc7vq2x4gwo8b" path="res://A7/icon-score.svg" id="19_11tey"]
+[ext_resource type="Texture2D" uid="uid://dc6tgb75itky" path="res://A7/ICON_Bacterie.svg" id="20_ohl11"]
+[ext_resource type="Texture2D" uid="uid://dcwng4pyt5yhe" path="res://A7/micro-algue.svg" id="21_2iitp"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_us1ng"]
 texture = ExtResource("5_o0fnr")
@@ -44,8 +50,22 @@ expand_margin_top = 16.0
 expand_margin_right = 14.0
 expand_margin_bottom = 16.0
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0fbg1"]
+texture = ExtResource("5_o0fnr")
+expand_margin_left = 9.0
+expand_margin_top = 12.0
+expand_margin_right = 9.0
+expand_margin_bottom = 12.0
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1bd2c"]
 texture = ExtResource("14_7m41b")
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_buxpr"]
+texture = ExtResource("14_7m41b")
+expand_margin_left = 10.0
+expand_margin_right = 10.0
 
 [node name="GameState" type="Node"]
 script = ExtResource("1_2k4vx")
@@ -63,10 +83,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -957.0
-offset_top = -534.0
-offset_right = 963.0
-offset_bottom = 546.0
+offset_left = -989.0
+offset_top = -585.0
+offset_right = 993.0
+offset_bottom = 576.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -79,13 +99,15 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -1299.0
-offset_bottom = 166.0
+offset_left = -597.0
+offset_bottom = 180.0
 grow_horizontal = 0
 
 [node name="TextureRect" type="TextureRect" parent="Control/toprightnotch"]
+custom_minimum_size = Vector2(100, 180)
 layout_mode = 2
-texture = ExtResource("13_omtjn")
+texture = ExtResource("3_wx7p0")
+expand_mode = 1
 
 [node name="controlpanel" type="VBoxContainer" parent="Control"]
 layout_mode = 2
@@ -112,6 +134,7 @@ offset_left = 140.0
 offset_top = 20.0
 offset_right = 270.0
 offset_bottom = 64.0
+theme_override_fonts/font = ExtResource("6_2fc57")
 theme_override_font_sizes/font_size = 31
 text = "Contrôle"
 
@@ -234,23 +257,120 @@ size_flags_vertical = 3
 layout_mode = 1
 anchors_preset = -1
 anchor_bottom = 0.037
-offset_left = 1660.0
-offset_top = 45.0
-offset_right = 1910.0
-offset_bottom = 89.966
+offset_left = 1625.0
+offset_top = 40.0
+offset_right = 1889.0
+offset_bottom = 94.966
+
+[node name="HSlider" type="HSlider" parent="Control/buttonright"]
+layout_mode = 2
+theme_override_icons/grabber = ExtResource("15_0pklc")
+theme_override_icons/grabber_highlight = ExtResource("16_pfpmy")
+theme_override_styles/slider = SubResource("StyleBoxTexture_0fbg1")
 
 [node name="nextdaybutton" type="Button" parent="Control/buttonright"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("14_hudrj")
+theme_override_fonts/font = ExtResource("6_2fc57")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxTexture_1bd2c")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_buxpr")
+action_mode = 0
+text = "Passer le Temps"
 
 [node name="Label" type="Label" parent="Control/buttonright"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="day_count" type="HBoxContainer" parent="Control"]
+offset_left = 1330.0
+offset_top = 60.0
+offset_right = 1560.0
+offset_bottom = 100.0
+
+[node name="TextureRect" type="TextureRect" parent="Control/day_count"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("12_i74jk")
+expand_mode = 1
+
+[node name="time" type="Label" parent="Control/day_count"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_2fc57")
+theme_override_font_sizes/font_size = 32
+text = "Jour 2 - %:%"
+
+[node name="topnotchleft" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1466.0
+offset_right = -616.0
+offset_bottom = 180.0
+grow_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="Control/topnotchleft"]
+custom_minimum_size = Vector2(100, 180)
+layout_mode = 2
+texture = ExtResource("18_4qm36")
+expand_mode = 1
+
+[node name="score_count" type="HBoxContainer" parent="Control/topnotchleft/TextureRect"]
+offset_left = 630.0
+offset_top = 60.0
+offset_right = 860.0
+offset_bottom = 100.0
+
+[node name="TextureRect" type="TextureRect" parent="Control/topnotchleft/TextureRect/score_count"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("19_11tey")
+expand_mode = 1
+
+[node name="time" type="Label" parent="Control/topnotchleft/TextureRect/score_count"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_2fc57")
+theme_override_font_sizes/font_size = 32
+text = "Score : %d"
+
+[node name="bacteria_count" type="HBoxContainer" parent="Control/topnotchleft/TextureRect"]
+offset_left = 380.0
+offset_top = 60.0
+offset_right = 630.0
+offset_bottom = 100.0
+
+[node name="TextureRect" type="TextureRect" parent="Control/topnotchleft/TextureRect/bacteria_count"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("20_ohl11")
+expand_mode = 1
+
+[node name="time" type="Label" parent="Control/topnotchleft/TextureRect/bacteria_count"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_2fc57")
+theme_override_font_sizes/font_size = 32
+text = "%d Bacteries"
+
+[node name="algues_count" type="HBoxContainer" parent="Control/topnotchleft/TextureRect"]
+offset_left = 60.0
+offset_top = 60.0
+offset_right = 374.0
+offset_bottom = 100.0
+
+[node name="TextureRect" type="TextureRect" parent="Control/topnotchleft/TextureRect/algues_count"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("21_2iitp")
+expand_mode = 1
+
+[node name="time" type="Label" parent="Control/topnotchleft/TextureRect/algues_count"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_2fc57")
+theme_override_font_sizes/font_size = 32
+text = "%d Micro-Algues"
 
 [connection signal="drag_started" from="Control/sliders/sliderlightbutton" to="." method="_on_sliderlightbutton_drag_started"]
 [connection signal="value_changed" from="Control/sliders/sliderlightbutton" to="." method="_on_sliderlightbutton_value_changed"]
