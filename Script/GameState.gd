@@ -114,10 +114,40 @@ func _private_progress_day():
 	print_all_vars()
 
 """
+Function for calcul output: yield_reactor
+"""
+func _private_f1() -> float:
+	var m_light = GameVar.game_input["light"]
+	var m_dilution = GameVar.game_input["dilution"]
+	var m_glucose = GameVar.game_input["glucose"]
+	#TODO: Complete the calcule
+	var r = 0
+	return 0.0
+
+"""
+Function for calcul output: algae
+"""
+func _private_f2() -> float:
+	var m_light = GameVar.game_input["light"]
+	var m_dilution = GameVar.game_input["dilution"]
+	var m_glucose = GameVar.game_input["glucose"]
+	var m_yield_reactor = GameVar.game_output["yield_reactor"]
+	#TODO: complete the calcule 
+	var r = 0
+	return 0.0
+
+"""
 Calcul the new value of output for new day
 """
 func _private_update_output():
 	#TODO: Place reel equation
+	"""
+	Algo:
+		Calcule yield_reactor
+		Actualiser la valeur de yield_reactor (f1)
+		Calculer algae
+		Actualiser la valeur de algae (f2)
+	"""
 	GameVar.game_output["algae"] += 0.1
 	GameVar.game_output["yield_reactor"] += 0.1
 	
@@ -133,7 +163,7 @@ Print all var in terminal
 """
 func print_all_vars():
 	print("immunity_day: ", GameVar.immunity_day)
-	print("game_intput: ", GameVar.game_intput)
+	print("game_intput: ", GameVar.game_input)
 	print("game_output: ", GameVar.game_output)
 	
 
@@ -142,7 +172,7 @@ Return all game variable (use for label print)
 """
 func _private_dump_all_value_string() -> String:
 	var s = "immunity_day: " + str(GameVar.immunity_day) + "\n"
-	s += "game_intput: " + str(GameVar.game_intput) + "\n"
+	s += "game_intput: " + str(GameVar.game_input) + "\n"
 	s += "game_output: " +  str(GameVar.game_output) + "\n"
 	s += "day: " + str(GameVar.time) + "\n"
 	return str(s)
