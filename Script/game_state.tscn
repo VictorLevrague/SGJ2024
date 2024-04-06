@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://e7dbsae2t2xb"]
+[gd_scene load_steps=2 format=3 uid="uid://b5la6rts4vbws"]
 
 [ext_resource type="Script" path="res://Script/GameState.gd" id="1_2k4vx"]
 
@@ -31,35 +31,45 @@ color = Color(0.160784, 0.160784, 0.160784, 1)
 
 [node name="buttons" type="VBoxContainer" parent="Control"]
 layout_mode = 0
-offset_right = 214.0
-offset_bottom = 175.0
+offset_right = 726.0
+offset_bottom = 559.0
+alignment = 1
 
 [node name="sliderlightbutton" type="Button" parent="Control/buttons"]
 layout_mode = 2
-text = "test"
+size_flags_vertical = 3
+text = "Light"
 
 [node name="sliderdilution" type="Button" parent="Control/buttons"]
 layout_mode = 2
-text = "test2"
+size_flags_vertical = 3
+text = "Dilution"
 
 [node name="sliderglucose" type="Button" parent="Control/buttons"]
 layout_mode = 2
-text = "test3"
+size_flags_vertical = 3
+text = "Glucose"
 
 [node name="buttonright" type="VBoxContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
 anchor_bottom = 0.037
-offset_left = 1745.0
+offset_left = 767.0
 offset_top = 42.0
 offset_right = 1853.0
-offset_bottom = 49.966
+offset_bottom = 855.966
 
 [node name="nextdaybutton" type="Button" parent="Control/buttonright"]
 layout_mode = 2
+size_flags_vertical = 3
 text = "next day"
+
+[node name="Label" type="Label" parent="Control/buttonright"]
+layout_mode = 2
+size_flags_vertical = 3
 
 [connection signal="pressed" from="Control/buttons/sliderlightbutton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Control/buttons/sliderdilution" to="." method="_on_sliderdilution_pressed"]
 [connection signal="pressed" from="Control/buttons/sliderglucose" to="." method="_on_sliderglucose_pressed"]
 [connection signal="pressed" from="Control/buttonright/nextdaybutton" to="." method="_on_nextdaybutton_pressed"]
+[connection signal="ready" from="Control/buttonright/Label" to="." method="_on_label_ready"]

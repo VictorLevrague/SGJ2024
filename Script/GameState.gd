@@ -1,5 +1,12 @@
 extends Node
 
+"""
+Load when all node ready
+"""
+func _ready():
+	#setup_label()
+	pass
+
 func _process(float):
 	update_gui()
 	
@@ -99,6 +106,7 @@ Update gamestate for new day
 func _private_progress_day():
 	_private_update_output()
 	_private_update_day()
+	print_all_vars()
 
 """
 Calcul the new value of output for new day
@@ -114,7 +122,7 @@ func _private_update_output():
 Update time game (add 1 to day)
 """
 func _private_update_day():
-	GameVar.game_time["day"] += 1
+	GameVar.time["day"] += 1
 
 """
 Print all var in terminal 
@@ -163,6 +171,17 @@ func next_day():
 	_private_progress_day()
 
 
+#TODO: TEST FOR LABEL DO NOT TOUCH SEGFAULT
+var my_var = 123
+
+func setup_label():
+	var my_label = get_node("Label")
+	$Label.text = str("test")
+	if my_label != null:
+		my_label.text = str(my_var)
+	else:
+		printerr("[-] Label node is not initialized")
+
 func _on_button_pressed():
 	slider_light()
 
@@ -178,3 +197,7 @@ func _on_sliderglucose_pressed():
 
 func _on_nextdaybutton_pressed():
 	next_day()
+
+
+func _on_label_ready():
+	setup_label() # Replace with function body.
