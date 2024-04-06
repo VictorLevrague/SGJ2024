@@ -1,9 +1,24 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=11 format=3 uid="uid://c13t6vg1y1clr"]
 
 [ext_resource type="Script" path="res://Script/bacteria.gd" id="1_cbdqj"]
 [ext_resource type="Shader" path="res://Scenes/blob.gdshader" id="2_5t0rp"]
 [ext_resource type="Texture2D" uid="uid://cacc88iudnd53" path="res://A7/bacteria/bacteria_sphere1.png" id="2_b1mvu"]
 [ext_resource type="AudioStream" uid="uid://deyyakkirsgxv" path="res://TempSound/blob.mp3" id="6_3at3v"]
+=======
+[gd_scene load_steps=18 format=3 uid="uid://d3ldck7h8spqs"]
+
+[ext_resource type="Script" path="res://Script/bacteria.gd" id="1_cbdqj"]
+[ext_resource type="Shader" path="res://Scenes/blob.gdshader" id="2_5t0rp"]
+[ext_resource type="Texture2D" uid="uid://d3f6sym7dbsa" path="res://A7/bacteria/bacteriaSphere1.png" id="3_w51u3"]
+[ext_resource type="Texture2D" uid="uid://bhcncvfb6jxer" path="res://A7/bacteria/bacteriaSphere2.png" id="4_o2re5"]
+[ext_resource type="Texture2D" uid="uid://ir5flvhoseco" path="res://A7/bacteria/bacteriaSphere4.png" id="5_s8x75"]
+[ext_resource type="AudioStream" uid="uid://dd7wf7egycwwr" path="res://TempSound/blob.mp3" id="6_3at3v"]
+[ext_resource type="Texture2D" uid="uid://cslx32pec3qx2" path="res://A7/bacteria/bacteriaCaps1.png" id="6_i736g"]
+[ext_resource type="Texture2D" uid="uid://dvjqjlmwrcynb" path="res://A7/bacteria/bacteriaCaps2.png" id="7_uusuw"]
+[ext_resource type="Texture2D" uid="uid://cpac5s3oo83ye" path="res://A7/bacteria/bacteriaCaps3.png" id="8_emxw0"]
+[ext_resource type="Texture2D" uid="uid://b8rc5ko87vlha" path="res://A7/bacteria/bacteriaCaps4.png" id="9_grgw5"]
+>>>>>>> Stashed changes
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_woifi"]
 resource_local_to_scene = true
@@ -16,10 +31,13 @@ shader_parameter/attenuation = 1.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_x4rmw"]
 radius = 289.007
 
+<<<<<<< Updated upstream
 [sub_resource type="Animation" id="Animation_yi1wh"]
 resource_name = "BacteriaAnim"
 loop_mode = 1
 
+=======
+>>>>>>> Stashed changes
 [sub_resource type="Animation" id="Animation_yotqi"]
 length = 0.001
 tracks/0/type = "value"
@@ -34,6 +52,21 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0.72549)]
 }
+<<<<<<< Updated upstream
+=======
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_w51u3")]
+}
+>>>>>>> Stashed changes
 
 [sub_resource type="Animation" id="Animation_g8ne6"]
 resource_name = "FadeAppear"
@@ -51,9 +84,50 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.160784), Color(1, 1, 1, 0.380392), Color(1, 1, 1, 0.72549), Color(1, 1, 1, 1)]
 }
 
+<<<<<<< Updated upstream
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jgoly"]
 _data = {
 "BacteriaAnim": SubResource("Animation_yi1wh"),
+=======
+[sub_resource type="Animation" id="Animation_rl0iw"]
+resource_name = "BacteriaSphereAnim"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_w51u3"), ExtResource("4_o2re5"), ExtResource("4_o2re5"), ExtResource("5_s8x75")]
+}
+
+[sub_resource type="Animation" id="Animation_t6wm1"]
+resource_name = "BacteriaCapsAnim"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("6_i736g"), ExtResource("7_uusuw"), ExtResource("8_emxw0"), ExtResource("9_grgw5")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jgoly"]
+_data = {
+"BacteriaCapsAnim": SubResource("Animation_t6wm1"),
+"BacteriaSphereAnim": SubResource("Animation_rl0iw"),
+>>>>>>> Stashed changes
 "FadeAppear": SubResource("Animation_g8ne6"),
 "RESET": SubResource("Animation_yotqi")
 }
@@ -68,9 +142,17 @@ material = SubResource("ShaderMaterial_woifi")
 offset_left = 17.0
 offset_right = 591.0
 offset_bottom = 528.0
+<<<<<<< Updated upstream
 texture = ExtResource("2_b1mvu")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+=======
+texture = ExtResource("3_w51u3")
+expand_mode = 1
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+visible = false
+>>>>>>> Stashed changes
 position = Vector2(288, 250)
 shape = SubResource("CircleShape2D_x4rmw")
 
@@ -78,6 +160,10 @@ shape = SubResource("CircleShape2D_x4rmw")
 position = Vector2(288, 250)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+<<<<<<< Updated upstream
+=======
+visible = false
+>>>>>>> Stashed changes
 shape = SubResource("CircleShape2D_x4rmw")
 
 [node name="Timer" type="Timer" parent="."]

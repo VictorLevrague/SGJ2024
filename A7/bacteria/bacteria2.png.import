@@ -2,20 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< Updated upstream
-uid="uid://cacc88iudnd53"
-=======
-uid="uid://o65mci24j2pb"
->>>>>>> Stashed changes
-path="res://.godot/imported/bacteria_sphere1.png-4b7d54004c693c10c5359849cdf4d948.ctex"
+uid="uid://ddx7thvou6bae"
+path="res://.godot/imported/bacteria2.png-94e5f39ce031f5c1ecc1ce76a7b2d83f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://A7/bacteria/bacteria_sphere1.png"
-dest_files=["res://.godot/imported/bacteria_sphere1.png-4b7d54004c693c10c5359849cdf4d948.ctex"]
+source_file="res://A7/bacteria/bacteria2.png"
+dest_files=["res://.godot/imported/bacteria2.png-94e5f39ce031f5c1ecc1ce76a7b2d83f.ctex"]
 
 [params]
 

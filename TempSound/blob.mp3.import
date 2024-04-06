@@ -2,7 +2,11 @@
 
 importer="mp3"
 type="AudioStreamMP3"
+<<<<<<< Updated upstream
 uid="uid://deyyakkirsgxv"
+=======
+uid="uid://dd7wf7egycwwr"
+>>>>>>> Stashed changes
 path="res://.godot/imported/blob.mp3-b38e2038d07fcbc578ef0f1a99cfd3a2.mp3str"
 
 [deps]

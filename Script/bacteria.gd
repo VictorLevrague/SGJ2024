@@ -16,6 +16,7 @@ var elapsed_time
 
 func _ready():
     initialize_available_sprites()
+<<<<<<< Updated upstream
     sprite.texture = load(available_sprites[randi()%len(available_sprites)])
     #sprite.texture = load("res://A7/bacteria/bacteria1.png")
     self.scale = Vector2(scale_bacteria, scale_bacteria)
@@ -33,6 +34,29 @@ func initialize_available_sprites():
 
 func _physics_process(delta):
     #move_and_slide()
+=======
+    var rand_texture: int = randi()%len(available_sprites)
+    sprite.texture = load(available_sprites[rand_texture])
+    self.scale = Vector2(scale_bacteria, scale_bacteria)
+    direction = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
+    #sprite.modulate.a = 0
+    #%AnimationPlayer.play("FadeAppear")
+    if rand_texture:
+        %AnimationPlayer.play("BacteriaCapsAnim")
+    else:
+        %AnimationPlayer.play("BacteriaSphereAnim")
+
+func initialize_available_sprites():
+    #var path_sprites_folder = "res://A7/bacteria/"
+    #for file_name in DirAccess.get_files_at(path_sprites_folder):
+        #if (file_name.get_extension() == "import"):
+            #file_name = file_name.replace('.import', '')
+            #available_sprites.append(path_sprites_folder+file_name)
+    available_sprites = ["res://A7/bacteria/bacteriaSphere1.png", "res://A7/bacteria/bacteriaCaps1.png"]
+
+func _physics_process(delta):
+    move_and_slide()
+>>>>>>> Stashed changes
     rotation_current = lerp(rotation_current, rotation_target, rotation_speed * delta)
     rotate(rotation_current - rotation)
     velocity = direction * speed
