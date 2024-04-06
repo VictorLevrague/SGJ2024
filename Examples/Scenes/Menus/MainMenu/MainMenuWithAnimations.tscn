@@ -1,7 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://sbluwaaplbsg"]
+[gd_scene load_steps=18 format=3 uid="uid://sbluwaaplbsg"]
 
 [ext_resource type="PackedScene" uid="uid://bu1fmh7ltlnbm" path="res://Examples/Scenes/Menus/MainMenu/MainMenuWithScenes.tscn" id="1_6ic5b"]
 [ext_resource type="Script" path="res://Examples/Scenes/Menus/MainMenu/MainMenuWithAnimations.gd" id="2_xe54b"]
+[ext_resource type="Texture2D" uid="uid://byev5wj263kb2" path="res://A7/background.png" id="3_0q04j"]
+[ext_resource type="Texture2D" uid="uid://ciis384ujcdg6" path="res://A7/AlgoFarm-Logo.png" id="4_50mei"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "Intro"
@@ -339,14 +341,36 @@ tree_root = SubResource("AnimationNodeStateMachine_vikuh")
 anim_player = NodePath("../MenuAnimationPlayer")
 parameters/conditions/intro_done = false
 
+[node name="BackgroundTextureRect" parent="." index="3"]
+texture = ExtResource("3_0q04j")
+
 [node name="VersionNameLabel" parent="." index="4"]
 modulate = Color(1, 1, 1, 0)
 
 [node name="Title" parent="MenuContainer/VBoxContainer/TitlesMargin/TitlesContainer" index="0"]
+visible = true
 modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 0)
+size_flags_horizontal = 1
+texture = ExtResource("4_50mei")
 
-[node name="SubTitle" parent="MenuContainer/VBoxContainer/TitlesMargin/TitlesContainer" index="1"]
+[node name="SubTitle" type="Label" parent="MenuContainer/VBoxContainer/TitlesMargin/TitlesContainer" index="1"]
 modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuMargin" parent="MenuContainer/VBoxContainer" index="1"]
+custom_minimum_size = Vector2(500, 500)
+size_flags_horizontal = 4
 
 [node name="MenuButtons" parent="MenuContainer/VBoxContainer/MenuMargin" index="0"]
 modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 0)
+size_flags_vertical = 1
+
+[node name="PlayButton" parent="MenuContainer/VBoxContainer/MenuMargin/MenuButtons" index="0"]
+custom_minimum_size = Vector2(350, 90)
+size_flags_horizontal = 4
+size_flags_vertical = 4

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dc6tgb75itky"
-path="res://.godot/imported/ICON_Bacterie.svg-65a1dad50cb7cacd3e7805c6ff34143c.ctex"
+uid="uid://ciis384ujcdg6"
+path="res://.godot/imported/AlgoFarm-Logo.png-8d3e06983be110de31f6e8cd0c02b235.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://A7/ICON_Bacterie.svg"
-dest_files=["res://.godot/imported/ICON_Bacterie.svg-65a1dad50cb7cacd3e7805c6ff34143c.ctex"]
+source_file="res://A7/AlgoFarm-Logo.png"
+dest_files=["res://.godot/imported/AlgoFarm-Logo.png-8d3e06983be110de31f6e8cd0c02b235.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

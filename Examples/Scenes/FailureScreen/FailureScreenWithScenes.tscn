@@ -4,3 +4,20 @@
 
 [node name="FailureScreen" instance=ExtResource("1_6po0x")]
 main_menu_scene = "res://Examples/Scenes/Menus/MainMenu/MainMenuWithAnimations.tscn"
+
+[node name="FailureMessage" parent="Control/Panel/MarginContainer/VBoxContainer" index="0"]
+text = "Vous avez perdu."
+
+[node name="RestartButton" parent="Control/Panel/MarginContainer/VBoxContainer/ButtonsContainer" index="0"]
+visible = false
+
+[node name="MainMenuButton" parent="Control/Panel/MarginContainer/VBoxContainer/ButtonsContainer" index="1"]
+text = "Rejouer?"
+
+[node name="ExitButton" parent="Control/Panel/MarginContainer/VBoxContainer/ButtonsContainer" index="2"]
+visible = false
+
+[node name="ConfirmMainMenu" parent="." index="1"]
+title = ""
+dialog_text = "Voulez-vous rejouer?"
+cancel_button_text = "Annuler"
