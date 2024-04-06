@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3c8i6xok45ov"]
+
+[ext_resource type="Script" path="res://GameVar.gd" id="1_8apmy"]
+
+[node name="GameVar" type="Node"]
+script = ExtResource("1_8apmy")
