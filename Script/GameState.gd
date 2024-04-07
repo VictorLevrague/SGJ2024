@@ -8,7 +8,8 @@ func _ready():
 	pass
 
 func _process(float):
-	setup_label()
+	#
+	#setup_label()
 	update_gui()
 	
 
@@ -248,7 +249,7 @@ func _on_nextdaybutton_pressed():
 	next_day()
 
 func _on_label_ready():
-	setup_label() # Replace with function body.
+	#setup_label() # Replace with function body.
 
 """
 Convert slider light in using value
