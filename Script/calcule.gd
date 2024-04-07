@@ -17,6 +17,8 @@ func phi(s: float) -> float: return phi_max * s / (ks + s)
 func rho(v: float) -> float: return rho_max * v / (kv + v)
 func mu(q: float) -> float: return mu_max * (1 - qmin / q)
 
+signal new_day()
+
 # Define state dictionary
 @export var state = {
     "t"= 0.0,# hours
