@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bmpk5gqctgbrx"]
+[gd_scene load_steps=42 format=3 uid="uid://bmpk5gqctgbrx"]
 
 [ext_resource type="Script" path="res://Script/GameState.gd" id="1_2k4vx"]
 [ext_resource type="Texture2D" uid="uid://c751kkye0r5ke" path="res://A7/light.png" id="2_3hdml"]
@@ -25,10 +25,13 @@
 [ext_resource type="Script" path="res://Script/Nb_glucose.gd" id="17_1aest"]
 [ext_resource type="Texture2D" uid="uid://b3b3vwwxfvmuw" path="res://A7/algbactscore.svg" id="18_4qm36"]
 [ext_resource type="Texture2D" uid="uid://bc7vq2x4gwo8b" path="res://A7/icon-score.svg" id="19_11tey"]
+[ext_resource type="Script" path="res://Script/sliderlightbutton.gd" id="19_cbdcp"]
 [ext_resource type="Script" path="res://Script/Nb_time.gd" id="19_f8dcd"]
 [ext_resource type="Texture2D" uid="uid://dc6tgb75itky" path="res://A7/ICON_Bacterie_save.svg" id="20_ohl11"]
 [ext_resource type="Texture2D" uid="uid://dcwng4pyt5yhe" path="res://A7/micro-algue.svg" id="21_2iitp"]
+[ext_resource type="Script" path="res://Script/sliderdilution.gd" id="22_hu27g"]
 [ext_resource type="Script" path="res://Script/time.gd" id="23_xbljm"]
+[ext_resource type="Script" path="res://Script/sliderglucose.gd" id="24_abojj"]
 [ext_resource type="Script" path="res://Script/nb_score.gd" id="26_ydo86"]
 [ext_resource type="Script" path="res://Script/nb_bacteria.gd" id="27_4bs8j"]
 [ext_resource type="Script" path="res://Script/nb_algues.gd" id="28_x18gx"]
@@ -292,6 +295,9 @@ size_flags_stretch_ratio = 0.3
 theme_override_icons/grabber = ExtResource("4_0kpnb")
 theme_override_icons/grabber_highlight = ExtResource("5_oqppq")
 theme_override_styles/slider = SubResource("StyleBoxTexture_us1ng")
+min_value = 1.0
+value = 1.0
+script = ExtResource("19_cbdcp")
 
 [node name="title_dilution" type="HBoxContainer" parent="Control/sliders"]
 custom_minimum_size = Vector2(40, 20)
@@ -326,6 +332,9 @@ size_flags_stretch_ratio = 0.3
 theme_override_icons/grabber = ExtResource("4_0kpnb")
 theme_override_icons/grabber_highlight = ExtResource("5_oqppq")
 theme_override_styles/slider = SubResource("StyleBoxTexture_g71sl")
+min_value = 1.0
+value = 1.0
+script = ExtResource("22_hu27g")
 
 [node name="title_glucose" type="HBoxContainer" parent="Control/sliders"]
 layout_mode = 2
@@ -359,6 +368,9 @@ size_flags_stretch_ratio = 0.3
 theme_override_icons/grabber = ExtResource("4_0kpnb")
 theme_override_icons/grabber_highlight = ExtResource("5_oqppq")
 theme_override_styles/slider = SubResource("StyleBoxTexture_a5d1l")
+min_value = 1.0
+value = 1.0
+script = ExtResource("24_abojj")
 
 [node name="depre_time" type="HBoxContainer" parent="Control/sliders"]
 layout_mode = 2
