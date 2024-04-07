@@ -236,13 +236,13 @@ func next_day():
 	_private_progress_day()
 
 
-func setup_label():
-	var my_label = get_node("%Label")
-	##$Label.text = str("test")
-	if my_label != null:
-		my_label.text = str(_private_dump_all_value_string())
-	else:
-		printerr("[-] Label node is not initialized")
+#func setup_label():
+	#var my_label = get_node("%Label")
+	###$Label.text = str("test")
+	#if my_label != null:
+		#my_label.text = str(_private_dump_all_value_string())
+	#else:
+		#printerr("[-] Label node is not initialized")
 
 func _on_nextdaybutton_pressed():
 	next_day()
