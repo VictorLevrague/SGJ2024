@@ -97,6 +97,7 @@ func _private_progress_day():
 		SceneLoader.load_scene("res://Examples/Scenes/FailureScreen/FailureScreenWithScenes.tscn")
 	#TODO: add update mimale produce
 	_private_update_day()    #Fait
+	GameVar.conv_hours_in_day_hours()
 	_private_update_output() #Fait
 	
 	print_all_vars()
@@ -326,6 +327,10 @@ func _private_check_value():
 	assert(time_in_game >= 0, "Error time in game is negative")
 	assert(slider_time_value >= 1, "Error slider_time_value < 0")
 	assert(slider_time_value <= 10, "Error slider_time_value > 10")
+	assert(GameVar.gui_day >= 0, "Error gui_day > 0")
+	assert(GameVar.gui_hours >= 0, "Error gui_hours > 0")
+	assert(typeof(GameVar.gui_day) == TYPE_INT, "Error gui_day is float")
+	assert(typeof(GameVar.gui_hours) == TYPE_INT, "Error gui_hours is float")
 
 	## TEST ACTION PLAYER
 	var action_player = GameVar.action_player["nb_action"]

@@ -17,6 +17,22 @@ All global var
 @export var slider_time_value = 1
 @export var time_in_game = 0
 
+@export var gui_day = 0
+@export var gui_hours = 0
+
+func conv_hours_in_day_hours():
+	var days = (time_in_game / 24)
+	var remaining_hours = 0
+	if days < 1:
+		days = 0
+		remaining_hours = time_in_game
+	else:
+		remaining_hours = (time_in_game % 24)
+	gui_day = days
+	gui_hours = remaining_hours
+	
+	
+
 var time_in_game_test:
 	set(value):
 		call_test()
@@ -69,6 +85,8 @@ func reset_GameVar():
 	action_player["nb_action"] = 0.0
 	minimal_objective["minimal_algea"] = 0.0
 	minimal_objective["minimal_yield_reactor"] = 0.0
+	gui_hours = 0
+	gui_day = 0
 
 #func init():
 #	GameVar.time["day"] = 0.0
