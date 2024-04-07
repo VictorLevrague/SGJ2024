@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://3shqv5bkeaki"]
+[gd_scene load_steps=3 format=3 uid="uid://3shqv5bkeaki"]
 
 [ext_resource type="PackedScene" uid="uid://cp3p3kqcjh0me" path="res://addons/maaacks_game_template/extras/scenes/FailureScreen/FailureScreen.tscn" id="1_6po0x"]
+[ext_resource type="Script" path="res://Examples/Scenes/FailureScreen/MainMenuButton.gd" id="2_7a8ty"]
 
 [node name="FailureScreen" instance=ExtResource("1_6po0x")]
 main_menu_scene = "res://Examples/Scenes/Menus/MainMenu/MainMenuWithAnimations.tscn"
@@ -13,6 +14,7 @@ visible = false
 
 [node name="MainMenuButton" parent="Control/Panel/MarginContainer/VBoxContainer/ButtonsContainer" index="1"]
 text = "Rejouer?"
+script = ExtResource("2_7a8ty")
 
 [node name="ExitButton" parent="Control/Panel/MarginContainer/VBoxContainer/ButtonsContainer" index="2"]
 visible = false
@@ -21,3 +23,5 @@ visible = false
 title = ""
 dialog_text = "Voulez-vous rejouer?"
 cancel_button_text = "Annuler"
+
+[connection signal="button_up" from="Control/Panel/MarginContainer/VBoxContainer/ButtonsContainer/MainMenuButton" to="Control/Panel/MarginContainer/VBoxContainer/ButtonsContainer/MainMenuButton" method="_on_button_up"]
