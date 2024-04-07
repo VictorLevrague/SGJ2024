@@ -521,6 +521,31 @@ theme_override_font_sizes/font_size = 32
 text = "%d Micro-Algues"
 script = ExtResource("28_x18gx")
 
+[node name="buttonright" type="VBoxContainer" parent="."]
+anchors_preset = -1
+anchor_bottom = 0.037
+offset_left = 1625.0
+offset_top = 40.0
+offset_right = 1889.0
+offset_bottom = 94.966
+
+[node name="nextdaybutton" type="Button" parent="buttonright"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("6_2fc57")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_1bd2c")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_buxpr")
+action_mode = 0
+text = "Passer le Temps"
+
+[node name="Label" type="Label" parent="buttonright"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
 [connection signal="button_down" from="Control/controlpanel/TextureRect/nextdaybutton" to="." method="_on_nextdaybutton_button_down"]
 [connection signal="pressed" from="Control/controlpanel/TextureRect/nextdaybutton" to="." method="_on_nextdaybutton_pressed"]
 [connection signal="drag_started" from="Control/sliders/sliderlightbutton" to="." method="_on_sliderlightbutton_drag_started"]
@@ -535,3 +560,6 @@ script = ExtResource("28_x18gx")
 [connection signal="value_changed" from="Control/sliders/sliderglucose" to="Control/sliders/title_glucose/Nb_glucose" method="_on_sliderglucose_value_changed"]
 [connection signal="value_changed" from="Control/sliders/slidertime" to="." method="_on_slidertime_value_changed"]
 [connection signal="value_changed" from="Control/sliders/slidertime" to="Control/sliders/depre_time/Nb_time" method="_on_slidertime_value_changed"]
+[connection signal="button_down" from="buttonright/nextdaybutton" to="." method="_on_nextdaybutton_button_down"]
+[connection signal="pressed" from="buttonright/nextdaybutton" to="." method="_on_nextdaybutton_pressed"]
+[connection signal="ready" from="buttonright/Label" to="." method="_on_label_ready"]
