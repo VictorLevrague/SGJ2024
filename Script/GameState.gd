@@ -77,7 +77,8 @@ Return 1 if player death else 0
 func check_death() -> int:
 	#TODO: add verification to minamal produc
 	#Playe wasn't immunity
-	var epsilon = 0.001
+	#Ancien valauer 0.001 
+	var epsilon = 0.01
 	var c = Calcule.state["c"]
 	if c <= (0.0 + epsilon):
 		return 1
