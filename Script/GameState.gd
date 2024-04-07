@@ -79,9 +79,8 @@ func check_death() -> int:
     #TODO: add verification to minamal produc
     #Playe wasn't immunity
     #Ancien valauer 0.001 
-    var epsilon = 0.01
     var c = Calcule.state["c"]
-    if c <= (0.0 + epsilon):
+    if c <= Calcule.EPSILON:
         return 1
     else:
         return 0
@@ -105,7 +104,7 @@ func _private_progress_day():
     print_all_vars()
     _private_dump_value_terminal()
     #CHECK VALUE OF GAME STATE
-    #_private_check_value()
+    _private_check_value()
 
 """
 Function for calcul output: yield_reactor
