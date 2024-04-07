@@ -1,8 +1,7 @@
-[gd_scene load_steps=42 format=3 uid="uid://bmpk5gqctgbrx"]
+[gd_scene load_steps=41 format=3 uid="uid://bmpk5gqctgbrx"]
 
 [ext_resource type="Script" path="res://Script/GameState.gd" id="1_2k4vx"]
 [ext_resource type="Texture2D" uid="uid://c751kkye0r5ke" path="res://A7/light.png" id="2_3hdml"]
-[ext_resource type="FontFile" uid="uid://eau1bpok362r" path="res://A7/font/MOBYB___.TTF" id="2_lldfd"]
 [ext_resource type="Texture2D" uid="uid://tfbemure2nj4" path="res://A7/background_game.png" id="2_q5bqm"]
 [ext_resource type="Texture2D" uid="uid://cdfp5hkarkvv4" path="res://A7/dilution.png" id="3_8rbrq"]
 [ext_resource type="PackedScene" uid="uid://huppnw00a70w" path="res://Scenes/bacteria_reactor.tscn" id="3_gpjyt"]
@@ -27,7 +26,6 @@
 [ext_resource type="Texture2D" uid="uid://bc7vq2x4gwo8b" path="res://A7/icon-score.svg" id="19_11tey"]
 [ext_resource type="Script" path="res://Script/sliderlightbutton.gd" id="19_cbdcp"]
 [ext_resource type="Script" path="res://Script/Nb_time.gd" id="19_f8dcd"]
-[ext_resource type="Texture2D" uid="uid://dc6tgb75itky" path="res://A7/ICON_Bacterie_save.svg" id="20_ohl11"]
 [ext_resource type="Texture2D" uid="uid://dcwng4pyt5yhe" path="res://A7/micro-algue.svg" id="21_2iitp"]
 [ext_resource type="Script" path="res://Script/sliderdilution.gd" id="22_hu27g"]
 [ext_resource type="Script" path="res://Script/time.gd" id="23_xbljm"]
@@ -35,6 +33,7 @@
 [ext_resource type="Script" path="res://Script/nb_score.gd" id="26_ydo86"]
 [ext_resource type="Script" path="res://Script/nb_bacteria.gd" id="27_4bs8j"]
 [ext_resource type="Script" path="res://Script/nb_algues.gd" id="28_x18gx"]
+[ext_resource type="Texture2D" uid="uid://dtpug31ddbssa" path="res://A7/ICON_Bacterie.png" id="31_p6rv4"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_us1ng"]
 texture = ExtResource("5_o0fnr")
@@ -265,27 +264,28 @@ alignment = 1
 [node name="title_light" type="HBoxContainer" parent="Control/sliders"]
 layout_mode = 2
 
-[node name="Light" type="Label" parent="Control/sliders/title_light"]
-layout_mode = 2
-size_flags_horizontal = 5
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.35
-theme_override_fonts/font = ExtResource("2_lldfd")
-theme_override_font_sizes/font_size = 24
-text = "Lumière"
-vertical_alignment = 1
-
 [node name="TextureRect" type="TextureRect" parent="Control/sliders/title_light"]
 custom_minimum_size = Vector2(44, 44)
 layout_mode = 2
 texture = ExtResource("2_3hdml")
 expand_mode = 1
 
+[node name="Light" type="Label" parent="Control/sliders/title_light"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.35
+theme_override_fonts/font = ExtResource("6_2fc57")
+theme_override_font_sizes/font_size = 30
+text = "Lumière : "
+vertical_alignment = 1
+
 [node name="Nb_light" type="Label" parent="Control/sliders/title_light"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_2fc57")
 theme_override_font_sizes/font_size = 30
 text = "x %"
+vertical_alignment = 1
 script = ExtResource("10_shs2h")
 
 [node name="sliderlightbutton" type="HSlider" parent="Control/sliders"]
@@ -303,26 +303,26 @@ script = ExtResource("19_cbdcp")
 custom_minimum_size = Vector2(40, 20)
 layout_mode = 2
 
-[node name="Dilution" type="Label" parent="Control/sliders/title_dilution"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("2_lldfd")
-theme_override_font_sizes/font_size = 24
-text = "
-Dilution"
-vertical_alignment = 1
-
 [node name="TextureRect" type="TextureRect" parent="Control/sliders/title_dilution"]
 custom_minimum_size = Vector2(44, 44)
 layout_mode = 2
 texture = ExtResource("3_8rbrq")
 expand_mode = 1
 
+[node name="Dilution" type="Label" parent="Control/sliders/title_dilution"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("6_2fc57")
+theme_override_font_sizes/font_size = 30
+text = "Dilution : "
+vertical_alignment = 1
+
 [node name="Nb_dilution" type="Label" parent="Control/sliders/title_dilution"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_2fc57")
 theme_override_font_sizes/font_size = 30
 text = "x %"
+vertical_alignment = 1
 script = ExtResource("15_ogfoi")
 
 [node name="sliderdilution" type="HSlider" parent="Control/sliders"]
@@ -339,20 +339,20 @@ script = ExtResource("22_hu27g")
 [node name="title_glucose" type="HBoxContainer" parent="Control/sliders"]
 layout_mode = 2
 
-[node name="Glucose" type="Label" parent="Control/sliders/title_glucose"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("2_lldfd")
-theme_override_font_sizes/font_size = 24
-text = "Glucose"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="TextureRect" type="TextureRect" parent="Control/sliders/title_glucose"]
 custom_minimum_size = Vector2(44, 44)
 layout_mode = 2
 texture = ExtResource("5_3rprc")
 expand_mode = 1
+
+[node name="Glucose" type="Label" parent="Control/sliders/title_glucose"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("6_2fc57")
+theme_override_font_sizes/font_size = 30
+text = "Glucose : "
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Nb_glucose" type="Label" parent="Control/sliders/title_glucose"]
 layout_mode = 2
@@ -375,23 +375,23 @@ script = ExtResource("24_abojj")
 [node name="depre_time" type="HBoxContainer" parent="Control/sliders"]
 layout_mode = 2
 
-[node name="time" type="Label" parent="Control/sliders/depre_time"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_lldfd")
-theme_override_font_sizes/font_size = 26
-text = "Temps"
-
 [node name="TextureRect" type="TextureRect" parent="Control/sliders/depre_time"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 texture = ExtResource("12_i74jk")
 expand_mode = 1
 
+[node name="time" type="Label" parent="Control/sliders/depre_time"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_2fc57")
+theme_override_font_sizes/font_size = 30
+text = "Temps : "
+
 [node name="Nb_time" type="Label" parent="Control/sliders/depre_time"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_2fc57")
 theme_override_font_sizes/font_size = 30
-text = "x %"
+text = " x %"
 script = ExtResource("19_f8dcd")
 
 [node name="slidertime" type="HSlider" parent="Control/sliders"]
@@ -473,13 +473,13 @@ expand_mode = 1
 
 [node name="score_count" type="HBoxContainer" parent="Control/topnotchleft/TextureRect"]
 layout_mode = 0
-offset_left = 630.0
-offset_top = 60.0
-offset_right = 860.0
-offset_bottom = 100.0
+offset_left = 662.0
+offset_top = 40.0
+offset_right = 907.0
+offset_bottom = 120.0
 
 [node name="TextureRect" type="TextureRect" parent="Control/topnotchleft/TextureRect/score_count"]
-custom_minimum_size = Vector2(40, 40)
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 texture = ExtResource("19_11tey")
 expand_mode = 1
@@ -493,15 +493,15 @@ script = ExtResource("26_ydo86")
 
 [node name="bacteria_count" type="HBoxContainer" parent="Control/topnotchleft/TextureRect"]
 layout_mode = 0
-offset_left = 380.0
-offset_top = 60.0
-offset_right = 630.0
-offset_bottom = 100.0
+offset_left = 396.0
+offset_top = 49.0
+offset_right = 666.0
+offset_bottom = 109.0
 
 [node name="TextureRect" type="TextureRect" parent="Control/topnotchleft/TextureRect/bacteria_count"]
-custom_minimum_size = Vector2(40, 40)
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-texture = ExtResource("20_ohl11")
+texture = ExtResource("31_p6rv4")
 expand_mode = 1
 
 [node name="nb_bacteria" type="Label" parent="Control/topnotchleft/TextureRect/bacteria_count"]
