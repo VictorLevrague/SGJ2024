@@ -277,7 +277,7 @@ f: [0-100] -> [0-10]
 	x      -> (x/10)
 """
 func _private_conv_time(value) -> float:
-	return (value / 10)
+	return (value / 10) 
 
 func _on_sliderlightbutton_value_changed(value):
 	value = _private_conv_light(value)
@@ -295,7 +295,7 @@ func _on_sliderglucose_value_changed(value):
 	slider_glucose(value)
 
 func _on_slidertime_value_changed(value):
-	value = _private_conv_time(value)
+	#value = _private_conv_time(value)
 	#TODO: Enlever quand le slider est bon
 	#Pansement
 	#if value == 0:
