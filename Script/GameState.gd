@@ -298,8 +298,8 @@ func _on_slidertime_value_changed(value):
 	value = _private_conv_time(value)
 	#TODO: Enlever quand le slider est bon
 	#Pansement
-	if value == 0:
-		value = 1
+	#if value == 0:
+	#	value = 1
 	print("Slider timer: " + str(value))
 	slider_timer(value)
 
@@ -324,7 +324,7 @@ func _private_check_value():
 	var time_in_game = GameVar.time_in_game
 	var slider_time_value = GameVar.slider_time_value
 	assert(time_in_game >= 0, "Error time in game is negative")
-	assert(slider_time_value >= 0, "Error slider_time_value < 0")
+	assert(slider_time_value >= 1, "Error slider_time_value < 0")
 	assert(slider_time_value <= 10, "Error slider_time_value > 10")
 
 	## TEST ACTION PLAYER
@@ -332,3 +332,12 @@ func _private_check_value():
 	var immunity_action = GameVar.immunity_action
 	assert(action_player >= 0, "Error nb of action is negative")
 	assert(immunity_action >= 0, "Error immunity action is negative")
+	
+	## TEST OUTPUT
+	assert(Calcule.state["t"] >= 0, "Error t is negatif")
+	assert(Calcule.state["s"] >= 0, "Error s is negatif")
+	assert(Calcule.state["e"] >= 0, "Error e is negatif")
+	assert(Calcule.state["v"] >= 0, "Error v is negatif")
+	assert(Calcule.state["c"] >= 0, "Error c is negatif")
+	assert(Calcule.state["q"] >= 0, "Error q is negatif")
+
