@@ -11,12 +11,14 @@ var rotation_speed := 0.05 # Change this value to control the rotation speed
 var rotation_target := 2 * PI # Full rotation (360 degrees) in radians
 var rotation_current := 0.0
 var scale_bacteria := 0.1
+var type = 0 #O= bacteria, 1 = algae
 
 var elapsed_time
 
 func _ready():
     initialize_available_sprites()
-    var rand_texture: int = randi()%len(available_sprites)
+    #var rand_texture: int = randi()%len(available_sprites)
+    var rand_texture: int = type
     sprite.texture = load(available_sprites[rand_texture])
     sprite.expand_mode = 1
     self.scale = Vector2(scale_bacteria, scale_bacteria)
@@ -43,7 +45,6 @@ func _physics_process(delta):
 
 func _on_area_2d_body_entered(body):
     if body is CharacterBody2D:
-        print("bacteria bounce")
         body.direction *= -1
         self.direction *= -1
 
