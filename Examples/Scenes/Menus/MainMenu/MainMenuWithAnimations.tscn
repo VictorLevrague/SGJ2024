@@ -1,11 +1,13 @@
-[gd_scene load_steps=20 format=3 uid="uid://sbluwaaplbsg"]
+[gd_scene load_steps=22 format=3 uid="uid://sbluwaaplbsg"]
 
 [ext_resource type="PackedScene" uid="uid://bu1fmh7ltlnbm" path="res://Examples/Scenes/Menus/MainMenu/MainMenuWithScenes.tscn" id="1_6ic5b"]
 [ext_resource type="Script" path="res://Examples/Scenes/Menus/MainMenu/MainMenuWithAnimations.gd" id="2_xe54b"]
-[ext_resource type="Texture2D" uid="uid://byev5wj263kb2" path="res://A7/background.png" id="3_0q04j"]
 [ext_resource type="AudioStream" uid="uid://cvuujfdgyitvm" path="res://audio/song1-loop.ogg" id="3_wx7ih"]
+[ext_resource type="Texture2D" uid="uid://cs08gx8dj3nwv" path="res://Scenes/main-menu-background.png" id="4_2s6oy"]
 [ext_resource type="Texture2D" uid="uid://ciis384ujcdg6" path="res://A7/AlgoFarm-Logo.png" id="4_50mei"]
+[ext_resource type="PackedScene" uid="uid://huppnw00a70w" path="res://Scenes/bacteria_reactor.tscn" id="4_kaw66"]
 [ext_resource type="AudioStream" uid="uid://bnr3egtw7xt75" path="res://audio/new-game.wav" id="5_efpkm"]
+[ext_resource type="Script" path="res://Scenes/bacteria_reactor_menu.gd" id="5_jclq7"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "Intro"
@@ -348,10 +350,14 @@ anim_player = NodePath("../MenuAnimationPlayer")
 parameters/conditions/intro_done = false
 
 [node name="BackgroundTextureRect" parent="." index="3"]
-texture = ExtResource("3_0q04j")
+texture = ExtResource("4_2s6oy")
 
 [node name="VersionNameLabel" parent="." index="4"]
 modulate = Color(1, 1, 1, 0)
+
+[node name="BacteriaReactor" parent="MenuContainer" index="0" instance=ExtResource("4_kaw66")]
+layout_mode = 2
+script = ExtResource("5_jclq7")
 
 [node name="Title" parent="MenuContainer/VBoxContainer/TitlesMargin/TitlesContainer" index="0"]
 visible = true
@@ -384,8 +390,5 @@ size_flags_vertical = 4
 [node name="clicsound" type="AudioStreamPlayer" parent="MenuContainer/VBoxContainer/MenuMargin/MenuButtons/PlayButton" index="0"]
 stream = ExtResource("5_efpkm")
 volume_db = -6.0
-
-[node name="CreditsButton" parent="MenuContainer/VBoxContainer/MenuMargin/MenuButtons" index="2"]
-visible = false
 
 [connection signal="mouse_entered" from="MenuContainer/VBoxContainer/MenuMargin/MenuButtons/PlayButton" to="." method="_on_play_button_mouse_entered"]
