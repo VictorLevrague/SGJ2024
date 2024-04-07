@@ -105,7 +105,7 @@ func _private_progress_day():
     print_all_vars()
     _private_dump_value_terminal()
     #CHECK VALUE OF GAME STATE
-    _private_check_value()
+    #_private_check_value()
 
 """
 Function for calcul output: yield_reactor

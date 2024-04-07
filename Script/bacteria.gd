@@ -10,7 +10,7 @@ var direction := Vector2()
 var rotation_speed := 0.05 # Change this value to control the rotation speed
 var rotation_target := 2 * PI # Full rotation (360 degrees) in radians
 var rotation_current := 0.0
-var scale_bacteria := 0.2
+var scale_bacteria := 0.1
 
 var elapsed_time
 
@@ -21,9 +21,6 @@ func _ready():
     sprite.expand_mode = 1
     self.scale = Vector2(scale_bacteria, scale_bacteria)
     direction = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
-    #sprite.modulate.a = 0
-    #%AnimationPlayer.play("FadeAppear")
-    print(rand_texture)
     if rand_texture:
         %AnimationPlayer.play("BacteriaCapsAnim")
     else:

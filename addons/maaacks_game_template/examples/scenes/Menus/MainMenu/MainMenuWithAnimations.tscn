@@ -364,3 +364,19 @@ size_flags_vertical = 1
 [node name="PlayButton" parent="MenuContainer/VBoxContainer/MenuMargin/MenuButtons" index="0"]
 custom_minimum_size = Vector2(128, 40)
 text = "Play"
+
+[node name="OptionsButton" type="Button" parent="MenuContainer/VBoxContainer/MenuMargin/MenuButtons" index="1"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 40)
+layout_mode = 2
+text = "Options
+"
+
+[node name="CreditsButton" parent="MenuContainer/VBoxContainer/MenuMargin/MenuButtons" index="2"]
+visible = true
+text = "Credits"
+
+[node name="ExitButton" parent="MenuContainer/VBoxContainer/MenuMargin/MenuButtons" index="3"]
+text = "Exit"
+
+[connection signal="pressed" from="MenuContainer/VBoxContainer/MenuMargin/MenuButtons/OptionsButton" to="." method="_on_options_button_pressed"]

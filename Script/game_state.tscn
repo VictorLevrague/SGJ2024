@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bmpk5gqctgbrx"]
+[gd_scene load_steps=42 format=3 uid="uid://bmpk5gqctgbrx"]
 
 [ext_resource type="Script" path="res://Script/GameState.gd" id="1_2k4vx"]
 [ext_resource type="Texture2D" uid="uid://c751kkye0r5ke" path="res://A7/light.png" id="2_3hdml"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dnx1rnm2ovlu1" path="res://A7/rectangle.svg" id="3_wx7p0"]
 [ext_resource type="Texture2D" uid="uid://csj8hhm0gwa55" path="res://A7/dot-slider.svg" id="4_0kpnb"]
 [ext_resource type="Texture2D" uid="uid://cr1f4qi4icou4" path="res://A7/glucose.png" id="5_3rprc"]
+[ext_resource type="Texture2D" uid="uid://c5codw8u3yvdp" path="res://A7/ICON_score.svg" id="5_j66bc"]
 [ext_resource type="Texture2D" uid="uid://mcj0e746s4jc" path="res://A7/style-slider.svg" id="5_o0fnr"]
 [ext_resource type="Texture2D" uid="uid://cbdj6q4l1wfox" path="res://A7/dot-slider-hold.svg" id="5_oqppq"]
 [ext_resource type="FontFile" uid="uid://cjvs8h16wjigu" path="res://A7/font/Montserrat-Regular.ttf" id="6_2fc57"]
@@ -23,11 +24,11 @@
 [ext_resource type="Script" path="res://Script/Nb_dilution.gd" id="15_ogfoi"]
 [ext_resource type="Script" path="res://Script/Nb_glucose.gd" id="17_1aest"]
 [ext_resource type="Texture2D" uid="uid://b3b3vwwxfvmuw" path="res://A7/algbactscore.svg" id="18_4qm36"]
-[ext_resource type="Texture2D" uid="uid://bc7vq2x4gwo8b" path="res://A7/icon-score.svg" id="19_11tey"]
 [ext_resource type="Script" path="res://Script/sliderlightbutton.gd" id="19_cbdcp"]
 [ext_resource type="Script" path="res://Script/Nb_time.gd" id="19_f8dcd"]
 [ext_resource type="Texture2D" uid="uid://dcwng4pyt5yhe" path="res://A7/micro-algue.svg" id="21_2iitp"]
 [ext_resource type="Script" path="res://Script/sliderdilution.gd" id="22_hu27g"]
+[ext_resource type="Texture2D" uid="uid://dpxyf187c61hy" path="res://A7/ICON_Glucose.svg" id="23_gpbwx"]
 [ext_resource type="Script" path="res://Script/time.gd" id="23_xbljm"]
 [ext_resource type="Script" path="res://Script/sliderglucose.gd" id="24_abojj"]
 [ext_resource type="Script" path="res://Script/nb_score.gd" id="26_ydo86"]
@@ -112,20 +113,62 @@ offset_top = 0.0
 offset_right = 1982.0
 offset_bottom = 1161.0
 
-[node name="toprightnotch" type="VBoxContainer" parent="Control"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -597.0
-offset_bottom = 180.0
-grow_horizontal = 0
-
-[node name="TextureRect" type="TextureRect" parent="Control/toprightnotch"]
-custom_minimum_size = Vector2(100, 180)
+[node name="TextureRect" type="TextureRect" parent="Control"]
 layout_mode = 2
+offset_left = 1472.0
+offset_top = -16.0
+offset_right = 1962.0
+offset_bottom = 164.0
 texture = ExtResource("3_wx7p0")
 expand_mode = 1
+
+[node name="ScorePanel" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -444.0
+offset_top = -130.0
+offset_right = 36.0
+offset_bottom = 30.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("3_wx7p0")
+expand_mode = 1
+
+[node name="score_count" type="HBoxContainer" parent="Control/ScorePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -216.0
+offset_top = -64.0
+offset_right = 152.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control/ScorePanel/score_count"]
+custom_minimum_size = Vector2(60, 80)
+layout_mode = 2
+texture = ExtResource("5_j66bc")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="nb_score" type="Label" parent="Control/ScorePanel/score_count"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_2fc57")
+theme_override_font_sizes/font_size = 42
+text = "Score : %d"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("26_ydo86")
 
 [node name="controlpanel" type="VBoxContainer" parent="Control"]
 layout_mode = 2
@@ -139,16 +182,21 @@ layout_mode = 2
 texture = ExtResource("6_d5h74")
 
 [node name="Label" type="Label" parent="Control/controlpanel/TextureRect"]
-layout_mode = 0
-offset_left = 140.0
-offset_top = 20.0
-offset_right = 270.0
-offset_bottom = 64.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_top = 23.0
+offset_right = 69.0
+offset_bottom = 67.0
+grow_horizontal = 2
 theme_override_fonts/font = ExtResource("6_2fc57")
 theme_override_font_sizes/font_size = 31
 text = "Contrôle"
 
 [node name="nextdaybutton" type="Button" parent="Control/controlpanel/TextureRect"]
+layout_mode = 0
 offset_left = 76.0
 offset_top = 556.0
 offset_right = 371.0
@@ -356,7 +404,7 @@ layout_mode = 2
 [node name="TextureRect" type="TextureRect" parent="Control/sliders/title_glucose"]
 custom_minimum_size = Vector2(44, 44)
 layout_mode = 2
-texture = ExtResource("5_3rprc")
+texture = ExtResource("23_gpbwx")
 expand_mode = 1
 
 [node name="Glucose" type="Label" parent="Control/sliders/title_glucose"]
@@ -426,10 +474,10 @@ size_flags_vertical = 3
 
 [node name="day_count" type="HBoxContainer" parent="Control"]
 layout_mode = 0
-offset_left = 1330.0
-offset_top = 60.0
-offset_right = 1908.0
-offset_bottom = 100.0
+offset_left = 1489.0
+offset_top = 61.0
+offset_right = 1894.0
+offset_bottom = 101.0
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Control/day_count"]
@@ -450,9 +498,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -1540.0
-offset_right = -616.0
-offset_bottom = 180.0
+offset_left = -1268.0
+offset_top = -16.0
+offset_right = -500.0
+offset_bottom = 164.0
 grow_horizontal = 0
 
 [node name="TextureRect" type="TextureRect" parent="Control/topnotchleft"]
@@ -461,60 +510,51 @@ layout_mode = 2
 texture = ExtResource("18_4qm36")
 expand_mode = 1
 
-[node name="score_count" type="HBoxContainer" parent="Control/topnotchleft/TextureRect"]
-layout_mode = 0
-offset_left = 662.0
-offset_top = 40.0
-offset_right = 907.0
-offset_bottom = 120.0
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/topnotchleft/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -264.0
+offset_top = -42.0
+offset_right = 328.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 25
+alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Control/topnotchleft/TextureRect/score_count"]
-custom_minimum_size = Vector2(80, 80)
+[node name="bacteria_count" type="HBoxContainer" parent="Control/topnotchleft/TextureRect/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("19_11tey")
-expand_mode = 1
 
-[node name="nb_score" type="Label" parent="Control/topnotchleft/TextureRect/score_count"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("6_2fc57")
-theme_override_font_sizes/font_size = 32
-text = "Score : %d"
-script = ExtResource("26_ydo86")
-
-[node name="bacteria_count" type="HBoxContainer" parent="Control/topnotchleft/TextureRect"]
-layout_mode = 0
-offset_left = 396.0
-offset_top = 49.0
-offset_right = 666.0
-offset_bottom = 109.0
-
-[node name="TextureRect" type="TextureRect" parent="Control/topnotchleft/TextureRect/bacteria_count"]
-custom_minimum_size = Vector2(60, 60)
+[node name="TextureRect" type="TextureRect" parent="Control/topnotchleft/TextureRect/HBoxContainer/bacteria_count"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 texture = ExtResource("31_p6rv4")
 expand_mode = 1
+stretch_mode = 5
 
-[node name="nb_bacteria" type="Label" parent="Control/topnotchleft/TextureRect/bacteria_count"]
+[node name="nb_bacteria" type="Label" parent="Control/topnotchleft/TextureRect/HBoxContainer/bacteria_count"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_2fc57")
 theme_override_font_sizes/font_size = 32
 text = "%d Bacteries"
 script = ExtResource("27_4bs8j")
 
-[node name="algues_count" type="HBoxContainer" parent="Control/topnotchleft/TextureRect"]
-layout_mode = 0
-offset_left = 60.0
-offset_top = 60.0
-offset_right = 374.0
-offset_bottom = 100.0
+[node name="algues_count" type="HBoxContainer" parent="Control/topnotchleft/TextureRect/HBoxContainer"]
+layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Control/topnotchleft/TextureRect/algues_count"]
-custom_minimum_size = Vector2(40, 40)
+[node name="TextureRect" type="TextureRect" parent="Control/topnotchleft/TextureRect/HBoxContainer/algues_count"]
+custom_minimum_size = Vector2(40, 20)
 layout_mode = 2
 texture = ExtResource("21_2iitp")
 expand_mode = 1
+stretch_mode = 5
 
-[node name="nb_algues" type="Label" parent="Control/topnotchleft/TextureRect/algues_count"]
+[node name="nb_algues" type="Label" parent="Control/topnotchleft/TextureRect/HBoxContainer/algues_count"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_2fc57")
 theme_override_font_sizes/font_size = 32
