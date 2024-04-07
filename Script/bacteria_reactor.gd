@@ -46,8 +46,8 @@ func update_reactor():
             if len(bacteria_list) > 0:
                 bacteria_list[0].queue_free()
                 bacteria_list.remove_at(0)
-    elif (Calcule.get_bacteria() > 100):
-        spawn_bacteria(2)
+    elif (Calcule.get_bacteria() > 100) and (Calcule.get_bacteria() < 1000):
+        spawn_bacteria(1)
     
     print("algue: ", Calcule.get_algae() - nb_algae)
     if Calcule.get_algae() < 100 and (Calcule.get_algae() - nb_algae) >= 0:
@@ -57,8 +57,8 @@ func update_reactor():
             if len(algae_list) > 0:
                 algae_list[0].queue_free()
                 algae_list.remove_at(0)
-    elif (Calcule.get_algae() > 100):
-        spawn_algae(2)
+    elif (Calcule.get_algae() > 100) and (Calcule.get_algae() < 1000):
+        spawn_algae(1)
 
     nb_bacteria = Calcule.get_bacteria()
     nb_algae = Calcule.get_algae()
