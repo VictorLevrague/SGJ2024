@@ -37,3 +37,7 @@ func _input(event):
 func _ready():
 	super._ready()
 	animation_state_machine = $MenuAnimationTree.get("parameters/playback")
+
+
+func _on_play_button_mouse_entered():
+	$MenuContainer/VBoxContainer/MenuMargin/MenuButtons/PlayButton/clicsound.play()	

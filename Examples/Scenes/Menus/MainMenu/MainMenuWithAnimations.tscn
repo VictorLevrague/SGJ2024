@@ -1,9 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://sbluwaaplbsg"]
+[gd_scene load_steps=20 format=3 uid="uid://sbluwaaplbsg"]
 
 [ext_resource type="PackedScene" uid="uid://bu1fmh7ltlnbm" path="res://Examples/Scenes/Menus/MainMenu/MainMenuWithScenes.tscn" id="1_6ic5b"]
 [ext_resource type="Script" path="res://Examples/Scenes/Menus/MainMenu/MainMenuWithAnimations.gd" id="2_xe54b"]
 [ext_resource type="Texture2D" uid="uid://byev5wj263kb2" path="res://A7/background.png" id="3_0q04j"]
+[ext_resource type="AudioStream" uid="uid://cvuujfdgyitvm" path="res://audio/song1-loop.ogg" id="3_wx7ih"]
 [ext_resource type="Texture2D" uid="uid://ciis384ujcdg6" path="res://A7/AlgoFarm-Logo.png" id="4_50mei"]
+[ext_resource type="AudioStream" uid="uid://bnr3egtw7xt75" path="res://audio/new-game.wav" id="5_efpkm"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "Intro"
@@ -328,6 +330,10 @@ graph_offset = Vector2(-180.277, 49)
 [node name="MainMenu" instance=ExtResource("1_6ic5b")]
 script = ExtResource("2_xe54b")
 
+[node name="BackgroundMusicPlayer" parent="." index="0"]
+stream = ExtResource("3_wx7ih")
+volume_db = -3.0
+
 [node name="MenuAnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 libraries = {
 "": SubResource("AnimationLibrary_2kqig")
@@ -374,3 +380,12 @@ size_flags_vertical = 1
 custom_minimum_size = Vector2(350, 90)
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="clicsound" type="AudioStreamPlayer" parent="MenuContainer/VBoxContainer/MenuMargin/MenuButtons/PlayButton" index="0"]
+stream = ExtResource("5_efpkm")
+volume_db = -6.0
+
+[node name="CreditsButton" parent="MenuContainer/VBoxContainer/MenuMargin/MenuButtons" index="2"]
+visible = false
+
+[connection signal="mouse_entered" from="MenuContainer/VBoxContainer/MenuMargin/MenuButtons/PlayButton" to="." method="_on_play_button_mouse_entered"]
