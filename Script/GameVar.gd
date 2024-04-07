@@ -18,42 +18,59 @@ All global var
 @export var time_in_game = 0
 
 var time_in_game_test:
-    set(value):
-        call_test()
+	set(value):
+		call_test()
 
 
 ### Input ###
 #DEVALUATE
 @export var game_input = {
-    "light" = 0.0,
-    "dilution" = 0.0,
-    "glucose" = 0.0
+	"light" = 0.0,
+	"dilution" = 0.0,
+	"glucose" = 0.0
 }
 
 func call_test():
-    print("test")
+	print("test")
 
 
 ### Output ###
 ##Yeild_reactor = number bacterie
 #DEVALUATE
 @export var game_output = {
-    "algae" = 0.0,
-    "yield_reactor" = 0.0
+	"algae" = 0.0,
+	"yield_reactor" = 0.0
 }
 
 ### Time ###
 @export var action_player = {
-    "nb_action": 0
+	"nb_action"= 0
 }
 
 ### Objectif minimal output ###
 @export var minimal_objective = {
-    "minimal_algea" = 0,
-    "minimal_yield_reactor" = 0
+	"minimal_algea" = 0,
+	"minimal_yield_reactor" = 0
 }
+
+"""
+Reset 
+"""
+func reset_GameVar():
+	immunity_action = 0
+	start_minimal_algea = 100
+	startminimal_yield_reactor = 100
+	slider_time_value = 1
+	time_in_game = 0
+	game_input["light"] = 0.0
+	game_input["dilution"] = 0.0
+	game_input["glucose"] = 0.0
+	game_output["yield_reactor"] = 0.0
+	action_player["nb_action"] = 0.0
+	minimal_objective["minimal_algea"] = 0.0
+	minimal_objective["minimal_yield_reactor"] = 0.0
 
 #func init():
 #	GameVar.time["day"] = 0.0
-    
+	
 
