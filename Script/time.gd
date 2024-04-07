@@ -5,4 +5,7 @@ func _ready():
 
 func _process(float):
     var day = GameVar.time_in_game
-    self.text = "Jour " + str(day)
+    if GameVar.gui_day == 0:
+        self.text = str(GameVar.gui_hours) + " h"
+    else:
+        self.text = "Jour " + str(GameVar.gui_day) + ": " + str(GameVar.gui_hours) + " h"
