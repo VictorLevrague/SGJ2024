@@ -306,11 +306,20 @@ func _on_slidertime_value_changed(value):
 	print("Slider timer: " + str(value))
 	slider_timer(value)
 
+func write_to_file(text: String, file_path: String = "res://log_err.txt"):
+	var file = FileAccess.open(file_path, FileAccess.WRITE)
+	file.store_string(str(text))
+	#if error == OK:
+	#	file.store_string(text)
+	#	file.close()
+	#else:
+	#	printerr("Erreur lors de l'ouverture du fichier : ", file_path)
 
 """
 Teste value of game
 """
 func _private_check_value():
+	write_to_file(str(_private_dump_all_value_string()))
 	## TEST INPUT VALUE
 	var d  = Calcule.input["d"]
 	var alpha = Calcule.input["alpha"]
