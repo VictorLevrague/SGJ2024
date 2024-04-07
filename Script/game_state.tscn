@@ -26,7 +26,6 @@
 [ext_resource type="Texture2D" uid="uid://bc7vq2x4gwo8b" path="res://A7/icon-score.svg" id="19_11tey"]
 [ext_resource type="Script" path="res://Script/sliderlightbutton.gd" id="19_cbdcp"]
 [ext_resource type="Script" path="res://Script/Nb_time.gd" id="19_f8dcd"]
-[ext_resource type="Texture2D" uid="uid://dc6tgb75itky" path="res://A7/ICON_Bacterie_save.svg" id="20_ohl11"]
 [ext_resource type="Texture2D" uid="uid://dcwng4pyt5yhe" path="res://A7/micro-algue.svg" id="21_2iitp"]
 [ext_resource type="Script" path="res://Script/sliderdilution.gd" id="22_hu27g"]
 [ext_resource type="Script" path="res://Script/time.gd" id="23_xbljm"]
@@ -34,6 +33,7 @@
 [ext_resource type="Script" path="res://Script/nb_score.gd" id="26_ydo86"]
 [ext_resource type="Script" path="res://Script/nb_bacteria.gd" id="27_4bs8j"]
 [ext_resource type="Script" path="res://Script/nb_algues.gd" id="28_x18gx"]
+[ext_resource type="Texture2D" uid="uid://dtpug31ddbssa" path="res://A7/ICON_Bacterie.png" id="31_p6rv4"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_us1ng"]
 texture = ExtResource("5_o0fnr")
@@ -473,13 +473,13 @@ expand_mode = 1
 
 [node name="score_count" type="HBoxContainer" parent="Control/topnotchleft/TextureRect"]
 layout_mode = 0
-offset_left = 630.0
-offset_top = 60.0
-offset_right = 860.0
-offset_bottom = 100.0
+offset_left = 662.0
+offset_top = 40.0
+offset_right = 907.0
+offset_bottom = 120.0
 
 [node name="TextureRect" type="TextureRect" parent="Control/topnotchleft/TextureRect/score_count"]
-custom_minimum_size = Vector2(40, 40)
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 texture = ExtResource("19_11tey")
 expand_mode = 1
@@ -493,15 +493,15 @@ script = ExtResource("26_ydo86")
 
 [node name="bacteria_count" type="HBoxContainer" parent="Control/topnotchleft/TextureRect"]
 layout_mode = 0
-offset_left = 380.0
-offset_top = 60.0
-offset_right = 630.0
-offset_bottom = 100.0
+offset_left = 396.0
+offset_top = 49.0
+offset_right = 666.0
+offset_bottom = 109.0
 
 [node name="TextureRect" type="TextureRect" parent="Control/topnotchleft/TextureRect/bacteria_count"]
-custom_minimum_size = Vector2(40, 40)
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-texture = ExtResource("20_ohl11")
+texture = ExtResource("31_p6rv4")
 expand_mode = 1
 
 [node name="nb_bacteria" type="Label" parent="Control/topnotchleft/TextureRect/bacteria_count"]
