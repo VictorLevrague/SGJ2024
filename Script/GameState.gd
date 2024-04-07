@@ -171,7 +171,8 @@ func _private_dump_all_value_string() -> String:
 	s += "game_state: " + str(Calcule.state) + "\n"
 	s += "game_input: " +  str(Calcule.input) + "\n"
 	s += "hour: " + str(GameVar.time_in_game) + "\n"
-	s += "Time silder: " +str(GameVar.slider_time_value)
+	s += "Time silder: " +str(GameVar.slider_time_value) + "\n"
+	s += "Day : " + str(GameVar.gui_day) + " hours: " + str(GameVar.gui_hours) + "\n"
 	return str(s)
 	
 
