@@ -12,6 +12,9 @@ const beta = 0.023
 const gamma = 0.63
 const theta = 0.8
 
+# death epsilon
+@export var EPSILON = 0.001 # = 1 mg
+
 # Growth/Uptake functions
 func phi(s: float) -> float: return phi_max * s / (ks + s)
 func rho(v: float) -> float: return rho_max * v / (kv + v)
@@ -73,10 +76,17 @@ Use for print for GUI
 """
 func get_score() -> int: return score;
 
+func kill_them_bitches():
+    if state["c"] <= EPSILON:
+        state["c"] = 0.0
+    if state["e"] <= EPSILON:
+        state["e"] = 0.0
+
 """
 Update dynamical system's state for new input at new time.
 """
 func update_state(t: float, state: Dictionary, input: Dictionary):
+    kill_them_bitches()
     var phi_s_e = 0
     var rho_v = 0
     var mu_q = 0
@@ -84,8 +94,10 @@ func update_state(t: float, state: Dictionary, input: Dictionary):
     var hours = t - state["t"]
     state["t"] = t
     emit_signal("new_day")
+    var N = 10;
     var dt = 1.0 / 24.0;
-    for h in range(int(hours)):
+    dt /= N;
+    for h in range(N*int(hours)):
         phi_s_e = phi(state["s"]) * state["e"]
         rho_v = rho(state["v"])
         mu_q = mu(state["q"])
