@@ -35,6 +35,16 @@
 [ext_resource type="Script" path="res://Script/nb_algues.gd" id="28_x18gx"]
 [ext_resource type="Texture2D" uid="uid://dtpug31ddbssa" path="res://A7/ICON_Bacterie.png" id="31_p6rv4"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1bd2c"]
+texture = ExtResource("14_7m41b")
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_buxpr"]
+texture = ExtResource("14_7m41b")
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_us1ng"]
 texture = ExtResource("5_o0fnr")
 expand_margin_left = 9.0
@@ -62,16 +72,6 @@ expand_margin_left = 9.0
 expand_margin_top = 16.0
 expand_margin_right = 14.0
 expand_margin_bottom = 16.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1bd2c"]
-texture = ExtResource("14_7m41b")
-expand_margin_left = 10.0
-expand_margin_right = 10.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_buxpr"]
-texture = ExtResource("14_7m41b")
-expand_margin_left = 10.0
-expand_margin_right = 10.0
 
 [node name="GameState" type="Node"]
 script = ExtResource("1_2k4vx")
@@ -147,6 +147,19 @@ offset_bottom = 64.0
 theme_override_fonts/font = ExtResource("6_2fc57")
 theme_override_font_sizes/font_size = 31
 text = "Contrôle"
+
+[node name="nextdaybutton" type="Button" parent="Control/controlpanel/TextureRect"]
+offset_left = 76.0
+offset_top = 556.0
+offset_right = 371.0
+offset_bottom = 615.0
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("6_2fc57")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_1bd2c")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_buxpr")
+action_mode = 0
+text = "Passer le Temps"
 
 [node name="BottomBar" type="TextureRect" parent="Control"]
 visible = false
@@ -259,6 +272,7 @@ offset_left = 50.0
 offset_top = 480.0
 offset_right = 456.0
 offset_bottom = 844.0
+theme_override_constants/separation = 16
 alignment = 1
 
 [node name="title_light" type="HBoxContainer" parent="Control/sliders"]
@@ -410,37 +424,13 @@ visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="buttonright" type="VBoxContainer" parent="Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_bottom = 0.037
-offset_left = 1625.0
-offset_top = 40.0
-offset_right = 1889.0
-offset_bottom = 94.966
-
-[node name="nextdaybutton" type="Button" parent="Control/buttonright"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("6_2fc57")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxTexture_1bd2c")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_buxpr")
-action_mode = 0
-text = "Passer le Temps"
-
-[node name="Label" type="Label" parent="Control/buttonright"]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-size_flags_vertical = 3
-
 [node name="day_count" type="HBoxContainer" parent="Control"]
 layout_mode = 0
 offset_left = 1330.0
 offset_top = 60.0
-offset_right = 1560.0
+offset_right = 1908.0
 offset_bottom = 100.0
+alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Control/day_count"]
 custom_minimum_size = Vector2(40, 40)
@@ -452,7 +442,7 @@ expand_mode = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_2fc57")
 theme_override_font_sizes/font_size = 32
-text = "Jour x - y h"
+text = "Jour x - y heures"
 script = ExtResource("23_xbljm")
 
 [node name="topnotchleft" type="VBoxContainer" parent="Control"]
@@ -531,6 +521,8 @@ theme_override_font_sizes/font_size = 32
 text = "%d Micro-Algues"
 script = ExtResource("28_x18gx")
 
+[connection signal="button_down" from="Control/controlpanel/TextureRect/nextdaybutton" to="." method="_on_nextdaybutton_button_down"]
+[connection signal="pressed" from="Control/controlpanel/TextureRect/nextdaybutton" to="." method="_on_nextdaybutton_pressed"]
 [connection signal="drag_started" from="Control/sliders/sliderlightbutton" to="." method="_on_sliderlightbutton_drag_started"]
 [connection signal="value_changed" from="Control/sliders/sliderlightbutton" to="." method="_on_sliderlightbutton_value_changed"]
 [connection signal="value_changed" from="Control/sliders/sliderlightbutton" to="Control/BottomBar/PrimaryContainer/Lumière/LumiereContainer/NBLumiere" method="_on_sliderlightbutton_value_changed"]
@@ -543,6 +535,3 @@ script = ExtResource("28_x18gx")
 [connection signal="value_changed" from="Control/sliders/sliderglucose" to="Control/sliders/title_glucose/Nb_glucose" method="_on_sliderglucose_value_changed"]
 [connection signal="value_changed" from="Control/sliders/slidertime" to="." method="_on_slidertime_value_changed"]
 [connection signal="value_changed" from="Control/sliders/slidertime" to="Control/sliders/depre_time/Nb_time" method="_on_slidertime_value_changed"]
-[connection signal="button_down" from="Control/buttonright/nextdaybutton" to="." method="_on_nextdaybutton_button_down"]
-[connection signal="pressed" from="Control/buttonright/nextdaybutton" to="." method="_on_nextdaybutton_pressed"]
-[connection signal="ready" from="Control/buttonright/Label" to="." method="_on_label_ready"]
