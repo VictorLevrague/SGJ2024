@@ -551,6 +551,7 @@ script = ExtResource("28_x18gx")
 [connection signal="value_changed" from="Control/sliders/sliderglucose" to="." method="_on_sliderglucose_value_changed"]
 [connection signal="value_changed" from="Control/sliders/sliderglucose" to="Control/BottomBar/PrimaryContainer/Glucose/GlucoseContainer/NBGlucose" method="_on_sliderglucose_value_changed"]
 [connection signal="value_changed" from="Control/sliders/sliderglucose" to="Control/sliders/title_glucose/Nb_glucose" method="_on_sliderglucose_value_changed"]
+[connection signal="value_changed" from="Control/sliders/slidertime" to="." method="_on_slidertime_value_changed"]
 [connection signal="value_changed" from="Control/sliders/slidertime" to="Control/sliders/depre_time/Nb_time" method="_on_slidertime_value_changed"]
 [connection signal="button_down" from="Control/buttonright/nextdaybutton" to="." method="_on_nextdaybutton_button_down"]
 [connection signal="pressed" from="Control/buttonright/nextdaybutton" to="." method="_on_nextdaybutton_pressed"]
