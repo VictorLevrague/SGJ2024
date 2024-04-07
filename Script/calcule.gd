@@ -36,6 +36,9 @@ signal new_day()
     "s_in"= 0.5
 }
 
+@export var score: int = 0
+
+
 """
 Use for print for GUI
 """
@@ -47,12 +50,7 @@ func get_algae() -> float: return (round(state['c']* 1000));
 """
 Use for print for GUI
 """
-func get_score() -> float:
-    var c = state['c'];
-    var productivity = input['d'] * c
-    var bio_yield = c / input['s_in']
-    var score = theta*productivity + (1 - theta)*bio_yield
-    return round(score * 1000)
+func get_score() -> int: return score;
 
 """
 Update dynamical system's state for new input at new time.
@@ -74,3 +72,7 @@ func update_state(t: float, state: Dictionary, input: Dictionary):
         state["v"] += dt * (input["alpha"] * beta * phi_s_e - rho_v * state["c"] - d * state["v"])
         state["q"] += dt * (rho_v - mu_q * state["q"])
         state["c"] += dt * (mu_q - m_c - d) * state["c"]
+    var productivity = d * state['c']
+    var bio_yield = state['c'] / input['s_in']
+    var objective = (theta*productivity + (1 - theta)*bio_yield)
+    score += int(1000 * objective)
