@@ -6,11 +6,11 @@ const rho_max = 0.0273
 const kv = 0.57e-3
 const mu_max = 1.0211
 const qmin = 2.7628e-3
-const m_e = 0
-const m_c = 0
+const m_e = 0.3
+const m_c = 0.1
 const beta = 0.023
 const gamma = 0.63
-const theta = 0.8
+const theta = 0.2
 
 # death epsilon
 @export var EPSILON = 0.001 # = 1 mg
@@ -107,6 +107,8 @@ func update_state(t: float, state: Dictionary, input: Dictionary):
         state["q"] += dt * (rho_v - mu_q * state["q"])
         state["c"] += dt * (mu_q - m_c - d) * state["c"]
     var productivity = d * state['c']
-    var bio_yield = state['c'] / input['s_in']
-    var objective = (theta*productivity + (1 - theta)*bio_yield)
+    #var bio_yield = state['c'] / input['s_in']
+    #var objective = (theta*productivity + (1 - theta)*bio_yield)
+    var cost = d * input['s_in']
+    var objective = productivity - theta*cost
     score += int(1000 * objective)
