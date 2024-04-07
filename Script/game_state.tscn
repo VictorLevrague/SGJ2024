@@ -35,6 +35,7 @@
 [ext_resource type="Script" path="res://Script/nb_bacteria.gd" id="27_4bs8j"]
 [ext_resource type="Script" path="res://Script/nb_algues.gd" id="28_x18gx"]
 [ext_resource type="Texture2D" uid="uid://dtpug31ddbssa" path="res://A7/ICON_Bacterie.png" id="31_p6rv4"]
+[ext_resource type="AudioStream" uid="uid://bc6awmuj8m2kq" path="res://audio/song3-loop.ogg" id="36_v7uu2"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1bd2c"]
 texture = ExtResource("14_7m41b")
@@ -76,6 +77,10 @@ expand_margin_bottom = 16.0
 
 [node name="GameState" type="Node"]
 script = ExtResource("1_2k4vx")
+
+[node name="bg_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("36_v7uu2")
+volume_db = -3.0
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
