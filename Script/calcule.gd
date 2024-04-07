@@ -17,8 +17,6 @@ func phi(s: float) -> float: return phi_max * s / (ks + s)
 func rho(v: float) -> float: return rho_max * v / (kv + v)
 func mu(q: float) -> float: return mu_max * (1 - qmin / q)
 
-signal new_day()
-
 # Define state dictionary
 @export var state = {
     "t"= 0.0,# hours
@@ -51,39 +49,26 @@ func get_score() -> float:
     var c = state['c'];
     var productivity = input['d'] * c
     var bio_yield = c / input['s_in']
-    return round((theta*productivity + (1 - theta)*bio_yield) * 1000)
+    var score = theta*productivity + (1 - theta)*bio_yield
+    return round(score * 1000)
 
-
-# Update state function
-#func update_state(t: float, state_dict: Dictionary, input_dict: Dictionary):
-    #var phi_s_e = phi(state_dict['s']) * state_dict['e']
-    #var rho_v = rho(state_dict['v'])
-    #var mu_q = mu(state_dict['q'])
-    #var dt = (t - state_dict['t'])/24
-    #var d = input_dict['d']
-#
-    #state_dict['t'] = t
-    #state_dict['s'] += dt * (-phi_s_e / gamma + d * (input_dict['s_in'] - state_dict['s']))
-    #state_dict['e'] += dt * ((1 - input_dict['alpha']) * (phi_s_e - m_e * state_dict['e']) - d * state_dict['e'])
-    #state_dict['v'] += dt * (input_dict['alpha'] * beta * phi_s_e - rho_v * state_dict['c'] - d * state_dict['v'])
-    #state_dict['c'] += dt * (mu_q - m_c - d) * state_dict['c']
-    #state_dict['q'] += dt * (rho_v - mu_q * state_dict['q'])
-    #state = state_dict
-
-# Update state function
-func update_state(t: float, state_dict: Dictionary, input_dict: Dictionary):
-    emit_signal("new_day")
-    var d = input_dict["d"]
-    var hours = t - state_dict["t"]
-    state_dict["t"] = t
-    var dt = 1 / 24;
-    for hr in hours:
-        var phi_s_e = phi(state_dict["s"]) * state_dict["e"]
-        var rho_v = rho(state_dict["v"])
-        var mu_q = mu(state_dict["q"])
-        state_dict["s"] += dt * (-phi_s_e / gamma + d * (input_dict["s_in"] - state_dict["s"]))
-        state_dict["e"] += dt * ((1 - input_dict["alpha"]) * (phi_s_e - m_e * state_dict["e"]) - d * state_dict["e"])
-        state_dict["v"] += dt * (input_dict["alpha"] * beta * phi_s_e - rho_v * state_dict["c"] - d * state_dict["v"])
-        state_dict["c"] += dt * (mu_q - m_c - d) * state_dict["c"]
-        state_dict["q"] += dt * (rho_v - mu_q * state_dict["q"])
-        state = state_dict
+"""
+Update dynamical system's state for new input at new time.
+"""
+func update_state(t: float, state: Dictionary, input: Dictionary):
+    var phi_s_e = 0
+    var rho_v = 0
+    var mu_q = 0
+    var d = input["d"]
+    var hours = t - state["t"]
+    state["t"] = t
+    var dt = 1.0 / 24.0;
+    for h in range(int(hours)):
+        phi_s_e = phi(state["s"]) * state["e"]
+        rho_v = rho(state["v"])
+        mu_q = mu(state["q"])
+        state["s"] += dt * (-phi_s_e / gamma + d * (input["s_in"] - state["s"]))
+        state["e"] += dt * ((1.0 - input["alpha"]) * (phi_s_e - m_e * state["e"]) - d * state["e"])
+        state["v"] += dt * (input["alpha"] * beta * phi_s_e - rho_v * state["c"] - d * state["v"])
+        state["q"] += dt * (rho_v - mu_q * state["q"])
+        state["c"] += dt * (mu_q - m_c - d) * state["c"]
